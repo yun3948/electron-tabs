@@ -1,4 +1,5 @@
 import Sortable from "sortablejs";
+import Electron from "electron";
 interface TabGroupOptions {
     closeButtonText: string;
     defaultTab: TabOptions | ((tabGroup: TabGroup) => TabOptions);
@@ -35,6 +36,7 @@ export class TabGroup extends HTMLElement {
     tabContainer: HTMLDivElement;
     tabs: Array<Tab>;
     viewContainer: HTMLDivElement;
+    addressBarContainer: HTMLDivElement;
     constructor();
     emit(type: string, ...args: any[]): void;
     on(type: string, fn: (...detail: any[]) => void): void;
@@ -69,14 +71,17 @@ export class Tab extends EventTarget {
     };
     tabGroup: TabGroup;
     title: string;
-    webview: HTMLElement;
+    webview: Electron.WebviewTag;
     webviewAttributes: {
         [key: string]: any;
     };
+    addressBar: HTMLElement;
+    addressText: HTMLElement;
     constructor(tabGroup: TabGroup, id: number, args: TabOptions);
     emit(type: string, ...args: any[]): void;
     on(type: string, fn: (...detail: any[]) => void): void;
     once(type: string, fn: (detail: string) => void): void;
+    initAddress(): void;
     initWebview(): void;
     setTitle(title: string): this;
     getTitle(): string;

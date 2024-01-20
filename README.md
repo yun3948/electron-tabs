@@ -1,8 +1,4 @@
-# electron-tabs is discontinued
-
-Thank you for your support and contributions all these years.
-
----
+# 基于 electron-tabs 主要增加了 前进后退按钮，用作简易浏览器展示
 
 # electron-tabs
 

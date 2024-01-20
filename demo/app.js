@@ -1,6 +1,7 @@
 const electron = require("electron");
 const app = electron.app;
 
+
 app.on("ready", function () {
   const mainWindow = new electron.BrowserWindow({
     webPreferences: {

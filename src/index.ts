@@ -1,7 +1,9 @@
 import Sortable from "sortablejs";
 // @ts-ignore
-import styles from "bundle-text:./style.css";
+import styles from "bundle-text:./style.css"; 
 
+import type Electron from "electron"
+  
 if (!document) {
   throw Error("electron-tabs module must be called in renderer process");
 }
@@ -41,7 +43,8 @@ const CLASSNAMES = {
   TAB: "tab",
   BUTTONS: "buttons",
   VIEWS: "views",
-  VIEW: "view"
+  VIEW: "view",
+  ADDRESS: 'address-wraper',
 }
 
 function emit(emitter: TabGroup | Tab, type: string, args: any[]) {
@@ -67,7 +70,7 @@ class TabGroup extends HTMLElement {
   tabContainer: HTMLDivElement;
   tabs: Array<Tab>;
   viewContainer: HTMLDivElement;
-
+  addressBarContainer: HTMLDivElement;
   constructor() {
     super();
 
@@ -116,7 +119,7 @@ class TabGroup extends HTMLElement {
   }
 
   private createComponent() {
-    const shadow = this.attachShadow({mode: "open"});
+    const shadow = this.attachShadow({ mode: "open" });
     this.shadow = shadow;
 
     const wrapper = document.createElement("div");
@@ -141,6 +144,11 @@ class TabGroup extends HTMLElement {
       button.innerHTML = this.options.newTabButtonText;
       button.addEventListener("click", this.addTab.bind(this, undefined), false);
     }
+
+    const addressBarContainer = document.createElement("div");
+    addressBarContainer.setAttribute("class", CLASSNAMES.ADDRESS);
+    wrapper.appendChild(addressBarContainer);
+    this.addressBarContainer = addressBarContainer;
 
     const viewContainer = document.createElement("div");
     viewContainer.setAttribute("class", CLASSNAMES.VIEWS);
@@ -289,8 +297,10 @@ class Tab extends EventTarget {
   spans: { [key: string]: HTMLSpanElement };
   tabGroup: TabGroup;
   title: string;
-  webview: HTMLElement;
+  webview: Electron.WebviewTag;
   webviewAttributes: { [key: string]: any };
+  addressBar: HTMLElement;
+  addressText: HTMLElement;
 
   constructor(tabGroup: TabGroup, id: number, args: TabOptions) {
     super();
@@ -308,6 +318,7 @@ class Tab extends EventTarget {
     this.webviewAttributes.src = args.src;
 
     this.initTab();
+    this.initAddress();
     this.initWebview();
 
     if (args.visible !== false) {
@@ -361,7 +372,7 @@ class Tab extends EventTarget {
 
   private initTabClickHandler() {
     // Mouse up
-    const tabClickHandler = function(e: KeyboardEvent) {
+    const tabClickHandler = function (e: KeyboardEvent) {
       if (this.isClosed) return;
       if (e.which === 2) {
         this.close();
@@ -369,7 +380,7 @@ class Tab extends EventTarget {
     };
     this.element.addEventListener("mouseup", tabClickHandler.bind(this), false);
     // Mouse down
-    const tabMouseDownHandler = function(e: KeyboardEvent) {
+    const tabMouseDownHandler = function (e: KeyboardEvent) {
       if (this.isClosed) return;
       if (e.which === 1) {
         if ((e.target as HTMLElement).matches("button")) return;
@@ -379,16 +390,56 @@ class Tab extends EventTarget {
     this.element.addEventListener("mousedown", tabMouseDownHandler.bind(this), false);
   }
 
+  initAddress() {
+
+    const addressBar = this.addressBar = document.createElement("div");
+    addressBar.classList.add('address');
+
+    //后退
+    const backBtn = addressBar.appendChild(document.createElement("div"));
+    backBtn.classList.add('address-icon', 'address-back');
+    let backBtnUrl = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE0NTYyMjczIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI3MDAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTI4My4zOTIgNDY5LjMzMzMzM2wyMjkuNTA0LTIyOS40ODI2NjYtNjAuMzUyLTYwLjM1MkwxMjAuNjgyNjY3IDUxMS4zODEzMzNsMzMxLjg2MTMzMyAzMzEuODYxMzM0IDYwLjM1Mi02MC4zNTJMMjg0LjY1MDY2NyA1NTQuNjY2NjY3SDg5NnYtODUuMzMzMzM0eiIgZmlsbD0iIzAwMDAwMCIgcC1pZD0iMjcwMSI+PC9wYXRoPjwvc3ZnPg==';
+
+    backBtn.innerHTML = `<img src="${backBtnUrl}"/>`;
+    backBtn.addEventListener('click', () => {
+      this.webview.goBack();
+    });
+
+    // 前进
+    const preBtn = addressBar.appendChild(document.createElement("div"));
+    preBtn.classList.add('address-icon', 'address-prev')
+    let preBtnUrl = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE0NTk5Mjc5IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI4NTQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTc4My4yNzQ2NjcgNDY5LjMzMzMzM0w1NTMuNzcwNjY3IDIzOS44NTA2NjdsNjAuMzUyLTYwLjM1MiAzMzEuODYxMzMzIDMzMS44ODI2NjYtMzMxLjg2MTMzMyAzMzEuODYxMzM0LTYwLjM1Mi02MC4zNTJMNzgyLjAxNiA1NTQuNjY2NjY3SDE3MC42NjY2Njd2LTg1LjMzMzMzNHoiIGZpbGw9IiMwMDAwMDAiIHAtaWQ9IjI4NTUiPjwvcGF0aD48L3N2Zz4=';
+    preBtn.innerHTML = `<img src="${preBtnUrl}"/>`;
+    preBtn.addEventListener('click', () => {
+      this.webview.goForward();
+    });
+
+    const reloadBtn = addressBar.appendChild(document.createElement("div"));
+    reloadBtn.classList.add('address-icon', 'address-reload');
+    let reloadBtnUrl = 'data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE1MjE3OTE0IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMwMDgiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTc2OC45Mzg2NjcgMjU2QTM2MS44OTg2NjcgMzYxLjg5ODY2NyAwIDAgMCA1MTIgMTQ5LjMzMzMzM0MzMTEuNzAxMzMzIDE0OS4zMzMzMzMgMTQ5LjMzMzMzMyAzMTEuNzAxMzMzIDE0OS4zMzMzMzMgNTEyczE2Mi4zNjggMzYyLjY2NjY2NyAzNjIuNjY2NjY3IDM2Mi42NjY2NjcgMzYyLjY2NjY2Ny0xNjIuMzY4IDM2Mi42NjY2NjctMzYyLjY2NjY2N2g4NS4zMzMzMzNjMCAyNDcuNDI0LTIwMC41NzYgNDQ4LTQ0OCA0NDhTNjQgNzU5LjQyNCA2NCA1MTIgMjY0LjU3NiA2NCA1MTIgNjRjMTIyLjg4IDAgMjM3LjIyNjY2NyA0OS44OTg2NjcgMzIwIDEzNC40VjY0aDg1LjMzMzMzM3YyNzcuMzMzMzMzSDY0MHYtODUuMzMzMzMzaDEyOC45Mzg2Njd6IiBmaWxsPSIjMDAwMDAwIiBwLWlkPSIzMDA5Ij48L3BhdGg+PC9zdmc+';
+    reloadBtn.innerHTML = `<img src="${reloadBtnUrl}"/>`;
+    reloadBtn.addEventListener('click', () => {
+      this.webview.reload();
+    });
+
+    //地址栏
+    const addressWaper = addressBar.appendChild(document.createElement("div"));
+    addressWaper.classList.add('address-bar')
+
+    this.addressText = addressWaper.appendChild(document.createElement('span'));
+    this.tabGroup.addressBarContainer.appendChild(this.addressBar);
+  }
+
   initWebview() {
     const webview = this.webview = document.createElement("webview");
 
-    const tabWebviewDidFinishLoadHandler = function(e: Event) {
+    const tabWebviewDidFinishLoadHandler = function (e: Event) {
       this.emit("webview-ready", this);
     };
 
     this.webview.addEventListener("did-finish-load", tabWebviewDidFinishLoadHandler.bind(this), false);
 
-    const tabWebviewDomReadyHandler = function(e: Event) {
+    const tabWebviewDomReadyHandler = function (e: Event) {
       // Remove this once https://github.com/electron/electron/issues/14474 is fixed
       webview.blur();
       webview.focus();
@@ -396,6 +447,12 @@ class Tab extends EventTarget {
     };
 
     this.webview.addEventListener("dom-ready", tabWebviewDomReadyHandler.bind(this), false);
+
+    this.webview.addEventListener('load-commit', (e:Electron.LoadCommitEvent) => {
+      if (!e.isMainFrame) return false;
+      let url = e?.url; 
+      this.addressText.innerText = url;
+    }, false);
 
     this.webview.classList.add(CLASSNAMES.VIEW);
     if (this.webviewAttributes) {

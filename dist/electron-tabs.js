@@ -1,8 +1,9 @@
+
 function $parcel$interopDefault(a) {
   return a && a.__esModule ? a.default : a;
 }
 /**!
- * Sortable 1.15.0
+ * Sortable 1.15.2
  * @author	RubaXa   <trash@rubaxa.org>
  * @author	owenm    <owen23355@gmail.com>
  * @license MIT
@@ -30,14 +31,15 @@ function $64afbd09cd65a300$var$_objectSpread2(target) {
     }
     return target;
 }
-function $64afbd09cd65a300$var$_typeof(obj1) {
+function $64afbd09cd65a300$var$_typeof(obj) {
+    "@babel/helpers - typeof";
     if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") $64afbd09cd65a300$var$_typeof = function(obj) {
         return typeof obj;
     };
     else $64afbd09cd65a300$var$_typeof = function(obj) {
         return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
     };
-    return $64afbd09cd65a300$var$_typeof(obj1);
+    return $64afbd09cd65a300$var$_typeof(obj);
 }
 function $64afbd09cd65a300$var$_defineProperty(obj, key, value) {
     if (key in obj) Object.defineProperty(obj, key, {
@@ -111,9 +113,9 @@ function $64afbd09cd65a300$var$_arrayLikeToArray(arr, len) {
 function $64afbd09cd65a300$var$_nonIterableSpread() {
     throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
-var $64afbd09cd65a300$var$version = "1.15.0";
+var $64afbd09cd65a300$var$version = "1.15.2";
 function $64afbd09cd65a300$var$userAgent(pattern) {
-    if (typeof window !== 'undefined' && window.navigator) return !!/*@__PURE__*/ navigator.userAgent.match(pattern);
+    if (typeof window !== "undefined" && window.navigator) return !!/*@__PURE__*/ navigator.userAgent.match(pattern);
 }
 var $64afbd09cd65a300$var$IE11OrLess = $64afbd09cd65a300$var$userAgent(/(?:Trident.*rv[ :]?11\.|msie|iemobile|Windows Phone)/i);
 var $64afbd09cd65a300$var$Edge = $64afbd09cd65a300$var$userAgent(/Edge/i);
@@ -133,7 +135,7 @@ function $64afbd09cd65a300$var$off(el, event, fn) {
 }
 function $64afbd09cd65a300$var$matches(/**HTMLElement*/ el, /**String*/ selector) {
     if (!selector) return;
-    selector[0] === '>' && (selector = selector.substring(1));
+    selector[0] === ">" && (selector = selector.substring(1));
     if (el) try {
         if (el.matches) return el.matches(selector);
         else if (el.msMatchesSelector) return el.msMatchesSelector(selector);
@@ -150,19 +152,19 @@ function $64afbd09cd65a300$var$closest(/**HTMLElement*/ el, /**String*/ selector
     if (el) {
         ctx = ctx || document;
         do {
-            if (selector != null && (selector[0] === '>' ? el.parentNode === ctx && $64afbd09cd65a300$var$matches(el, selector) : $64afbd09cd65a300$var$matches(el, selector)) || includeCTX && el === ctx) return el;
+            if (selector != null && (selector[0] === ">" ? el.parentNode === ctx && $64afbd09cd65a300$var$matches(el, selector) : $64afbd09cd65a300$var$matches(el, selector)) || includeCTX && el === ctx) return el;
             if (el === ctx) break;
-        /* jshint boss:true */ }while (el = $64afbd09cd65a300$var$getParentOrHost(el))
+        /* jshint boss:true */ }while (el = $64afbd09cd65a300$var$getParentOrHost(el));
     }
     return null;
 }
 var $64afbd09cd65a300$var$R_SPACE = /\s+/g;
 function $64afbd09cd65a300$var$toggleClass(el, name, state) {
     if (el && name) {
-        if (el.classList) el.classList[state ? 'add' : 'remove'](name);
+        if (el.classList) el.classList[state ? "add" : "remove"](name);
         else {
-            var className = (' ' + el.className + ' ').replace($64afbd09cd65a300$var$R_SPACE, ' ').replace(' ' + name + ' ', ' ');
-            el.className = (className + (state ? ' ' + name : '')).replace($64afbd09cd65a300$var$R_SPACE, ' ');
+            var className = (" " + el.className + " ").replace($64afbd09cd65a300$var$R_SPACE, " ").replace(" " + name + " ", " ");
+            el.className = (className + (state ? " " + name : "")).replace($64afbd09cd65a300$var$R_SPACE, " ");
         }
     }
 }
@@ -170,22 +172,22 @@ function $64afbd09cd65a300$var$css(el, prop, val) {
     var style = el && el.style;
     if (style) {
         if (val === void 0) {
-            if (document.defaultView && document.defaultView.getComputedStyle) val = document.defaultView.getComputedStyle(el, '');
+            if (document.defaultView && document.defaultView.getComputedStyle) val = document.defaultView.getComputedStyle(el, "");
             else if (el.currentStyle) val = el.currentStyle;
             return prop === void 0 ? val : val[prop];
         } else {
-            if (!(prop in style) && prop.indexOf('webkit') === -1) prop = '-webkit-' + prop;
-            style[prop] = val + (typeof val === 'string' ? '' : 'px');
+            if (!(prop in style) && prop.indexOf("webkit") === -1) prop = "-webkit-" + prop;
+            style[prop] = val + (typeof val === "string" ? "" : "px");
         }
     }
 }
 function $64afbd09cd65a300$var$matrix(el, selfOnly) {
-    var appliedTransforms = '';
-    if (typeof el === 'string') appliedTransforms = el;
+    var appliedTransforms = "";
+    if (typeof el === "string") appliedTransforms = el;
     else do {
-        var transform = $64afbd09cd65a300$var$css(el, 'transform');
-        if (transform && transform !== 'none') appliedTransforms = transform + ' ' + appliedTransforms;
-    /* jshint boss:true */ }while (!selfOnly && (el = el.parentNode))
+        var transform = $64afbd09cd65a300$var$css(el, "transform");
+        if (transform && transform !== "none") appliedTransforms = transform + " " + appliedTransforms;
+    /* jshint boss:true */ }while (!selfOnly && (el = el.parentNode));
     var matrixFn = window.DOMMatrix || window.WebKitCSSMatrix || window.CSSMatrix || window.MSCSSMatrix;
     /*jshint -W056 */ return matrixFn && new matrixFn(appliedTransforms);
 }
@@ -231,18 +233,20 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
     }
     if ((relativeToContainingBlock || relativeToNonStaticParent) && el !== window) {
         // Adjust for translate()
-        container = container || el.parentNode; // solves #1123 (see: https://stackoverflow.com/a/37953806/6088312)
+        container = container || el.parentNode;
+        // solves #1123 (see: https://stackoverflow.com/a/37953806/6088312)
         // Not needed on <= IE11
         if (!$64afbd09cd65a300$var$IE11OrLess) {
-            do if (container && container.getBoundingClientRect && ($64afbd09cd65a300$var$css(container, 'transform') !== 'none' || relativeToNonStaticParent && $64afbd09cd65a300$var$css(container, 'position') !== 'static')) {
-                var containerRect = container.getBoundingClientRect(); // Set relative to edges of padding box of container
-                top -= containerRect.top + parseInt($64afbd09cd65a300$var$css(container, 'border-top-width'));
-                left -= containerRect.left + parseInt($64afbd09cd65a300$var$css(container, 'border-left-width'));
+            do if (container && container.getBoundingClientRect && ($64afbd09cd65a300$var$css(container, "transform") !== "none" || relativeToNonStaticParent && $64afbd09cd65a300$var$css(container, "position") !== "static")) {
+                var containerRect = container.getBoundingClientRect();
+                // Set relative to edges of padding box of container
+                top -= containerRect.top + parseInt($64afbd09cd65a300$var$css(container, "border-top-width"));
+                left -= containerRect.left + parseInt($64afbd09cd65a300$var$css(container, "border-left-width"));
                 bottom = top + elRect.height;
                 right = left + elRect.width;
                 break;
             }
-            while (container = container.parentNode)
+            while (container = container.parentNode);
         }
     }
     if (undoScale && el !== window) {
@@ -276,7 +280,7 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
     var parent = $64afbd09cd65a300$var$getParentAutoScrollElement(el, true), elSideVal = $64afbd09cd65a300$var$getRect(el)[elSide];
     /* jshint boss:true */ while(parent){
         var parentSideVal = $64afbd09cd65a300$var$getRect(parent)[parentSide], visible = void 0;
-        if (parentSide === 'top' || parentSide === 'left') visible = elSideVal >= parentSideVal;
+        if (parentSide === "top" || parentSide === "left") visible = elSideVal >= parentSideVal;
         else visible = elSideVal <= parentSideVal;
         if (!visible) return parent;
         if (parent === $64afbd09cd65a300$var$getWindowScrollingElement()) break;
@@ -294,7 +298,7 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
  */ function $64afbd09cd65a300$var$getChild(el, childNum, options, includeDragEl) {
     var currentChild = 0, i = 0, children = el.children;
     while(i < children.length){
-        if (children[i].style.display !== 'none' && children[i] !== $64afbd09cd65a300$export$31b3ca70d8f57423.ghost && (includeDragEl || children[i] !== $64afbd09cd65a300$export$31b3ca70d8f57423.dragged) && $64afbd09cd65a300$var$closest(children[i], options.draggable, el, false)) {
+        if (children[i].style.display !== "none" && children[i] !== $64afbd09cd65a300$export$31b3ca70d8f57423.ghost && (includeDragEl || children[i] !== $64afbd09cd65a300$export$31b3ca70d8f57423.dragged) && $64afbd09cd65a300$var$closest(children[i], options.draggable, el, false)) {
             if (currentChild === childNum) return children[i];
             currentChild++;
         }
@@ -309,7 +313,7 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
  * @return {HTMLElement}          The last child, ignoring ghostEl
  */ function $64afbd09cd65a300$var$lastChild(el, selector) {
     var last = el.lastElementChild;
-    while(last && (last === $64afbd09cd65a300$export$31b3ca70d8f57423.ghost || $64afbd09cd65a300$var$css(last, 'display') === 'none' || selector && !$64afbd09cd65a300$var$matches(last, selector)))last = last.previousElementSibling;
+    while(last && (last === $64afbd09cd65a300$export$31b3ca70d8f57423.ghost || $64afbd09cd65a300$var$css(last, "display") === "none" || selector && !$64afbd09cd65a300$var$matches(last, selector)))last = last.previousElementSibling;
     return last || null;
 }
 /**
@@ -321,7 +325,7 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
  */ function $64afbd09cd65a300$var$index(el, selector) {
     var index = 0;
     if (!el || !el.parentNode) return -1;
-    /* jshint boss:true */ while(el = el.previousElementSibling)if (el.nodeName.toUpperCase() !== 'TEMPLATE' && el !== $64afbd09cd65a300$export$31b3ca70d8f57423.clone && (!selector || $64afbd09cd65a300$var$matches(el, selector))) index++;
+    /* jshint boss:true */ while(el = el.previousElementSibling)if (el.nodeName.toUpperCase() !== "TEMPLATE" && el !== $64afbd09cd65a300$export$31b3ca70d8f57423.clone && (!selector || $64afbd09cd65a300$var$matches(el, selector))) index++;
     return index;
 }
 /**
@@ -335,7 +339,7 @@ function $64afbd09cd65a300$var$getWindowScrollingElement() {
         var elMatrix = $64afbd09cd65a300$var$matrix(el), scaleX = elMatrix.a, scaleY = elMatrix.d;
         offsetLeft += el.scrollLeft * scaleX;
         offsetTop += el.scrollTop * scaleY;
-    }while (el !== winScroller && (el = el.parentNode))
+    }while (el !== winScroller && (el = el.parentNode));
     return [
         offsetLeft,
         offsetTop
@@ -363,13 +367,13 @@ function $64afbd09cd65a300$var$getParentAutoScrollElement(el, includeSelf) {
     do // we don't need to get elem css if it isn't even overflowing in the first place (performance)
     if (elem.clientWidth < elem.scrollWidth || elem.clientHeight < elem.scrollHeight) {
         var elemCSS = $64afbd09cd65a300$var$css(elem);
-        if (elem.clientWidth < elem.scrollWidth && (elemCSS.overflowX == 'auto' || elemCSS.overflowX == 'scroll') || elem.clientHeight < elem.scrollHeight && (elemCSS.overflowY == 'auto' || elemCSS.overflowY == 'scroll')) {
+        if (elem.clientWidth < elem.scrollWidth && (elemCSS.overflowX == "auto" || elemCSS.overflowX == "scroll") || elem.clientHeight < elem.scrollHeight && (elemCSS.overflowY == "auto" || elemCSS.overflowY == "scroll")) {
             if (!elem.getBoundingClientRect || elem === document.body) return $64afbd09cd65a300$var$getWindowScrollingElement();
             if (gotSelf || includeSelf) return elem;
             gotSelf = true;
         }
     }
-    while (elem = elem.parentNode)
+    while (elem = elem.parentNode);
     return $64afbd09cd65a300$var$getWindowScrollingElement();
 }
 function $64afbd09cd65a300$var$extend(dst, src) {
@@ -410,20 +414,37 @@ function $64afbd09cd65a300$var$clone(el) {
     else return el.cloneNode(true);
 }
 function $64afbd09cd65a300$var$setRect(el, rect) {
-    $64afbd09cd65a300$var$css(el, 'position', 'absolute');
-    $64afbd09cd65a300$var$css(el, 'top', rect.top);
-    $64afbd09cd65a300$var$css(el, 'left', rect.left);
-    $64afbd09cd65a300$var$css(el, 'width', rect.width);
-    $64afbd09cd65a300$var$css(el, 'height', rect.height);
+    $64afbd09cd65a300$var$css(el, "position", "absolute");
+    $64afbd09cd65a300$var$css(el, "top", rect.top);
+    $64afbd09cd65a300$var$css(el, "left", rect.left);
+    $64afbd09cd65a300$var$css(el, "width", rect.width);
+    $64afbd09cd65a300$var$css(el, "height", rect.height);
 }
 function $64afbd09cd65a300$var$unsetRect(el) {
-    $64afbd09cd65a300$var$css(el, 'position', '');
-    $64afbd09cd65a300$var$css(el, 'top', '');
-    $64afbd09cd65a300$var$css(el, 'left', '');
-    $64afbd09cd65a300$var$css(el, 'width', '');
-    $64afbd09cd65a300$var$css(el, 'height', '');
+    $64afbd09cd65a300$var$css(el, "position", "");
+    $64afbd09cd65a300$var$css(el, "top", "");
+    $64afbd09cd65a300$var$css(el, "left", "");
+    $64afbd09cd65a300$var$css(el, "width", "");
+    $64afbd09cd65a300$var$css(el, "height", "");
 }
-var $64afbd09cd65a300$var$expando = 'Sortable' + new Date().getTime();
+function $64afbd09cd65a300$var$getChildContainingRectFromElement(container, options, ghostEl) {
+    var rect = {};
+    Array.from(container.children).forEach(function(child) {
+        var _rect$left, _rect$top, _rect$right, _rect$bottom;
+        if (!$64afbd09cd65a300$var$closest(child, options.draggable, container, false) || child.animated || child === ghostEl) return;
+        var childRect = $64afbd09cd65a300$var$getRect(child);
+        rect.left = Math.min((_rect$left = rect.left) !== null && _rect$left !== void 0 ? _rect$left : Infinity, childRect.left);
+        rect.top = Math.min((_rect$top = rect.top) !== null && _rect$top !== void 0 ? _rect$top : Infinity, childRect.top);
+        rect.right = Math.max((_rect$right = rect.right) !== null && _rect$right !== void 0 ? _rect$right : -Infinity, childRect.right);
+        rect.bottom = Math.max((_rect$bottom = rect.bottom) !== null && _rect$bottom !== void 0 ? _rect$bottom : -Infinity, childRect.bottom);
+    });
+    rect.width = rect.right - rect.left;
+    rect.height = rect.bottom - rect.top;
+    rect.x = rect.left;
+    rect.y = rect.top;
+    return rect;
+}
+var $64afbd09cd65a300$var$expando = "Sortable" + new Date().getTime();
 function $64afbd09cd65a300$var$AnimationStateManager() {
     var animationStates = [], animationCallbackId;
     return {
@@ -432,12 +453,13 @@ function $64afbd09cd65a300$var$AnimationStateManager() {
             if (!this.options.animation) return;
             var children = [].slice.call(this.el.children);
             children.forEach(function(child) {
-                if ($64afbd09cd65a300$var$css(child, 'display') === 'none' || child === $64afbd09cd65a300$export$31b3ca70d8f57423.ghost) return;
+                if ($64afbd09cd65a300$var$css(child, "display") === "none" || child === $64afbd09cd65a300$export$31b3ca70d8f57423.ghost) return;
                 animationStates.push({
                     target: child,
                     rect: $64afbd09cd65a300$var$getRect(child)
                 });
-                var fromRect = $64afbd09cd65a300$var$_objectSpread2({}, animationStates[animationStates.length - 1].rect); // If animating: compensate for current animation
+                var fromRect = $64afbd09cd65a300$var$_objectSpread2({}, animationStates[animationStates.length - 1].rect);
+                // If animating: compensate for current animation
                 if (child.thisAnimationDuration) {
                     var childMatrix = $64afbd09cd65a300$var$matrix(child, true);
                     if (childMatrix) {
@@ -460,7 +482,7 @@ function $64afbd09cd65a300$var$AnimationStateManager() {
             var _this = this;
             if (!this.options.animation) {
                 clearTimeout(animationCallbackId);
-                if (typeof callback === 'function') callback();
+                if (typeof callback === "function") callback();
                 return;
             }
             var animating = false, animationTime = 0;
@@ -474,9 +496,11 @@ function $64afbd09cd65a300$var$AnimationStateManager() {
                 target.toRect = toRect;
                 if (target.thisAnimationDuration) // Could also check if animatingRect is between fromRect and toRect
                 {
-                    if ($64afbd09cd65a300$var$isRectEqual(prevFromRect, toRect) && !$64afbd09cd65a300$var$isRectEqual(fromRect, toRect) && (animatingRect.top - toRect.top) / (animatingRect.left - toRect.left) === (fromRect.top - toRect.top) / (fromRect.left - toRect.left)) // If returning to same place as started from animation and on same axis
+                    if ($64afbd09cd65a300$var$isRectEqual(prevFromRect, toRect) && !$64afbd09cd65a300$var$isRectEqual(fromRect, toRect) && // Make sure animatingRect is on line between toRect & fromRect
+                    (animatingRect.top - toRect.top) / (animatingRect.left - toRect.left) === (fromRect.top - toRect.top) / (fromRect.left - toRect.left)) // If returning to same place as started from animation and on same axis
                     time = $64afbd09cd65a300$var$calculateRealTime(animatingRect, prevFromRect, prevToRect, _this.options);
-                } // if fromRect != toRect: animate
+                }
+                // if fromRect != toRect: animate
                 if (!$64afbd09cd65a300$var$isRectEqual(toRect, fromRect)) {
                     target.prevFromRect = fromRect;
                     target.prevToRect = toRect;
@@ -499,27 +523,27 @@ function $64afbd09cd65a300$var$AnimationStateManager() {
             });
             clearTimeout(animationCallbackId);
             if (!animating) {
-                if (typeof callback === 'function') callback();
+                if (typeof callback === "function") callback();
             } else animationCallbackId = setTimeout(function() {
-                if (typeof callback === 'function') callback();
+                if (typeof callback === "function") callback();
             }, animationTime);
             animationStates = [];
         },
         animate: function animate(target, currentRect, toRect, duration) {
             if (duration) {
-                $64afbd09cd65a300$var$css(target, 'transition', '');
-                $64afbd09cd65a300$var$css(target, 'transform', '');
+                $64afbd09cd65a300$var$css(target, "transition", "");
+                $64afbd09cd65a300$var$css(target, "transform", "");
                 var elMatrix = $64afbd09cd65a300$var$matrix(this.el), scaleX = elMatrix && elMatrix.a, scaleY = elMatrix && elMatrix.d, translateX = (currentRect.left - toRect.left) / (scaleX || 1), translateY = (currentRect.top - toRect.top) / (scaleY || 1);
                 target.animatingX = !!translateX;
                 target.animatingY = !!translateY;
-                $64afbd09cd65a300$var$css(target, 'transform', 'translate3d(' + translateX + 'px,' + translateY + 'px,0)');
+                $64afbd09cd65a300$var$css(target, "transform", "translate3d(" + translateX + "px," + translateY + "px,0)");
                 this.forRepaintDummy = $64afbd09cd65a300$var$repaint(target); // repaint
-                $64afbd09cd65a300$var$css(target, 'transition', 'transform ' + duration + 'ms' + (this.options.easing ? ' ' + this.options.easing : ''));
-                $64afbd09cd65a300$var$css(target, 'transform', 'translate3d(0,0,0)');
-                typeof target.animated === 'number' && clearTimeout(target.animated);
+                $64afbd09cd65a300$var$css(target, "transition", "transform " + duration + "ms" + (this.options.easing ? " " + this.options.easing : ""));
+                $64afbd09cd65a300$var$css(target, "transform", "translate3d(0,0,0)");
+                typeof target.animated === "number" && clearTimeout(target.animated);
                 target.animated = setTimeout(function() {
-                    $64afbd09cd65a300$var$css(target, 'transition', '');
-                    $64afbd09cd65a300$var$css(target, 'transform', '');
+                    $64afbd09cd65a300$var$css(target, "transition", "");
+                    $64afbd09cd65a300$var$css(target, "transform", "");
                     target.animated = false;
                     target.animatingX = false;
                     target.animatingY = false;
@@ -553,13 +577,14 @@ var $64afbd09cd65a300$var$PluginManager = {
         evt.cancel = function() {
             _this.eventCanceled = true;
         };
-        var eventNameGlobal = eventName + 'Global';
+        var eventNameGlobal = eventName + "Global";
         $64afbd09cd65a300$var$plugins.forEach(function(plugin) {
-            if (!sortable[plugin.pluginName]) return; // Fire global events if it exists in this sortable
+            if (!sortable[plugin.pluginName]) return;
+            // Fire global events if it exists in this sortable
             if (sortable[plugin.pluginName][eventNameGlobal]) sortable[plugin.pluginName][eventNameGlobal]($64afbd09cd65a300$var$_objectSpread2({
                 sortable: sortable
             }, evt));
-             // Only fire plugin event if plugin is enabled in this sortable,
+            // Only fire plugin event if plugin is enabled in this sortable,
             // and plugin has event defined
             if (sortable.options[plugin.pluginName] && sortable[plugin.pluginName][eventName]) sortable[plugin.pluginName][eventName]($64afbd09cd65a300$var$_objectSpread2({
                 sortable: sortable
@@ -573,19 +598,20 @@ var $64afbd09cd65a300$var$PluginManager = {
             var initialized = new plugin(sortable, el, sortable.options);
             initialized.sortable = sortable;
             initialized.options = sortable.options;
-            sortable[pluginName] = initialized; // Add default options from plugin
+            sortable[pluginName] = initialized;
+            // Add default options from plugin
             $64afbd09cd65a300$var$_extends(defaults, initialized.defaults);
         });
         for(var option in sortable.options){
             if (!sortable.options.hasOwnProperty(option)) continue;
             var modified = this.modifyOption(sortable, option, sortable.options[option]);
-            if (typeof modified !== 'undefined') sortable.options[option] = modified;
+            if (typeof modified !== "undefined") sortable.options[option] = modified;
         }
     },
     getEventProperties: function getEventProperties(name, sortable) {
         var eventProperties = {};
         $64afbd09cd65a300$var$plugins.forEach(function(plugin) {
-            if (typeof plugin.eventProperties !== 'function') return;
+            if (typeof plugin.eventProperties !== "function") return;
             $64afbd09cd65a300$var$_extends(eventProperties, plugin.eventProperties.call(sortable[plugin.pluginName], name));
         });
         return eventProperties;
@@ -594,8 +620,9 @@ var $64afbd09cd65a300$var$PluginManager = {
         var modifiedValue;
         $64afbd09cd65a300$var$plugins.forEach(function(plugin) {
             // Plugin must exist on the Sortable
-            if (!sortable[plugin.pluginName]) return; // If static option listener exists for this option, call in the context of the Sortable's instance of this plugin
-            if (plugin.optionListeners && typeof plugin.optionListeners[name] === 'function') modifiedValue = plugin.optionListeners[name].call(sortable[plugin.pluginName], value);
+            if (!sortable[plugin.pluginName]) return;
+            // If static option listener exists for this option, call in the context of the Sortable's instance of this plugin
+            if (plugin.optionListeners && typeof plugin.optionListeners[name] === "function") modifiedValue = plugin.optionListeners[name].call(sortable[plugin.pluginName], value);
         });
         return modifiedValue;
     }
@@ -604,13 +631,14 @@ function $64afbd09cd65a300$var$dispatchEvent(_ref) {
     var sortable = _ref.sortable, rootEl = _ref.rootEl, name = _ref.name, targetEl = _ref.targetEl, cloneEl = _ref.cloneEl, toEl = _ref.toEl, fromEl = _ref.fromEl, oldIndex = _ref.oldIndex, newIndex = _ref.newIndex, oldDraggableIndex = _ref.oldDraggableIndex, newDraggableIndex = _ref.newDraggableIndex, originalEvent = _ref.originalEvent, putSortable = _ref.putSortable, extraEventProperties = _ref.extraEventProperties;
     sortable = sortable || rootEl && rootEl[$64afbd09cd65a300$var$expando];
     if (!sortable) return;
-    var evt, options = sortable.options, onName = 'on' + name.charAt(0).toUpperCase() + name.substr(1); // Support for new CustomEvent feature
+    var evt, options = sortable.options, onName = "on" + name.charAt(0).toUpperCase() + name.substr(1);
+    // Support for new CustomEvent feature
     if (window.CustomEvent && !$64afbd09cd65a300$var$IE11OrLess && !$64afbd09cd65a300$var$Edge) evt = new CustomEvent(name, {
         bubbles: true,
         cancelable: true
     });
     else {
-        evt = document.createEvent('Event');
+        evt = document.createEvent("Event");
         evt.initEvent(name, true, true);
     }
     evt.to = toEl || rootEl;
@@ -682,31 +710,32 @@ function $64afbd09cd65a300$var$_dispatchEvent(info) {
 var $64afbd09cd65a300$var$dragEl, $64afbd09cd65a300$var$parentEl, $64afbd09cd65a300$var$ghostEl, $64afbd09cd65a300$var$rootEl, $64afbd09cd65a300$var$nextEl, $64afbd09cd65a300$var$lastDownEl, $64afbd09cd65a300$var$cloneEl, $64afbd09cd65a300$var$cloneHidden, $64afbd09cd65a300$var$oldIndex, $64afbd09cd65a300$var$newIndex, $64afbd09cd65a300$var$oldDraggableIndex, $64afbd09cd65a300$var$newDraggableIndex, $64afbd09cd65a300$var$activeGroup, $64afbd09cd65a300$var$putSortable, $64afbd09cd65a300$var$awaitingDragStarted = false, $64afbd09cd65a300$var$ignoreNextClick = false, $64afbd09cd65a300$var$sortables = [], $64afbd09cd65a300$var$tapEvt, $64afbd09cd65a300$var$touchEvt, $64afbd09cd65a300$var$lastDx, $64afbd09cd65a300$var$lastDy, $64afbd09cd65a300$var$tapDistanceLeft, $64afbd09cd65a300$var$tapDistanceTop, $64afbd09cd65a300$var$moved, $64afbd09cd65a300$var$lastTarget, $64afbd09cd65a300$var$lastDirection, $64afbd09cd65a300$var$pastFirstInvertThresh = false, $64afbd09cd65a300$var$isCircumstantialInvert = false, $64afbd09cd65a300$var$targetMoveDistance, // For positioning ghost absolutely
 $64afbd09cd65a300$var$ghostRelativeParent, $64afbd09cd65a300$var$ghostRelativeParentInitialScroll = [], // (left, top)
 $64afbd09cd65a300$var$_silent = false, $64afbd09cd65a300$var$savedInputChecked = [];
-/** @const */ var $64afbd09cd65a300$var$documentExists = typeof document !== 'undefined', $64afbd09cd65a300$var$PositionGhostAbsolutely = $64afbd09cd65a300$var$IOS, $64afbd09cd65a300$var$CSSFloatProperty = $64afbd09cd65a300$var$Edge || $64afbd09cd65a300$var$IE11OrLess ? 'cssFloat' : 'float', // This will not pass for IE9, because IE9 DnD only works on anchors
-$64afbd09cd65a300$var$supportDraggable = $64afbd09cd65a300$var$documentExists && !$64afbd09cd65a300$var$ChromeForAndroid && !$64afbd09cd65a300$var$IOS && 'draggable' in document.createElement('div'), $64afbd09cd65a300$var$supportCssPointerEvents = function() {
-    if (!$64afbd09cd65a300$var$documentExists) return; // false when <= IE11
+/** @const */ var $64afbd09cd65a300$var$documentExists = typeof document !== "undefined", $64afbd09cd65a300$var$PositionGhostAbsolutely = $64afbd09cd65a300$var$IOS, $64afbd09cd65a300$var$CSSFloatProperty = $64afbd09cd65a300$var$Edge || $64afbd09cd65a300$var$IE11OrLess ? "cssFloat" : "float", // This will not pass for IE9, because IE9 DnD only works on anchors
+$64afbd09cd65a300$var$supportDraggable = $64afbd09cd65a300$var$documentExists && !$64afbd09cd65a300$var$ChromeForAndroid && !$64afbd09cd65a300$var$IOS && "draggable" in document.createElement("div"), $64afbd09cd65a300$var$supportCssPointerEvents = function() {
+    if (!$64afbd09cd65a300$var$documentExists) return;
+    // false when <= IE11
     if ($64afbd09cd65a300$var$IE11OrLess) return false;
-    var el = document.createElement('x');
-    el.style.cssText = 'pointer-events:auto';
-    return el.style.pointerEvents === 'auto';
+    var el = document.createElement("x");
+    el.style.cssText = "pointer-events:auto";
+    return el.style.pointerEvents === "auto";
 }(), $64afbd09cd65a300$var$_detectDirection = function _detectDirection(el, options) {
     var elCSS = $64afbd09cd65a300$var$css(el), elWidth = parseInt(elCSS.width) - parseInt(elCSS.paddingLeft) - parseInt(elCSS.paddingRight) - parseInt(elCSS.borderLeftWidth) - parseInt(elCSS.borderRightWidth), child1 = $64afbd09cd65a300$var$getChild(el, 0, options), child2 = $64afbd09cd65a300$var$getChild(el, 1, options), firstChildCSS = child1 && $64afbd09cd65a300$var$css(child1), secondChildCSS = child2 && $64afbd09cd65a300$var$css(child2), firstChildWidth = firstChildCSS && parseInt(firstChildCSS.marginLeft) + parseInt(firstChildCSS.marginRight) + $64afbd09cd65a300$var$getRect(child1).width, secondChildWidth = secondChildCSS && parseInt(secondChildCSS.marginLeft) + parseInt(secondChildCSS.marginRight) + $64afbd09cd65a300$var$getRect(child2).width;
-    if (elCSS.display === 'flex') return elCSS.flexDirection === 'column' || elCSS.flexDirection === 'column-reverse' ? 'vertical' : 'horizontal';
-    if (elCSS.display === 'grid') return elCSS.gridTemplateColumns.split(' ').length <= 1 ? 'vertical' : 'horizontal';
-    if (child1 && firstChildCSS["float"] && firstChildCSS["float"] !== 'none') {
-        var touchingSideChild2 = firstChildCSS["float"] === 'left' ? 'left' : 'right';
-        return child2 && (secondChildCSS.clear === 'both' || secondChildCSS.clear === touchingSideChild2) ? 'vertical' : 'horizontal';
+    if (elCSS.display === "flex") return elCSS.flexDirection === "column" || elCSS.flexDirection === "column-reverse" ? "vertical" : "horizontal";
+    if (elCSS.display === "grid") return elCSS.gridTemplateColumns.split(" ").length <= 1 ? "vertical" : "horizontal";
+    if (child1 && firstChildCSS["float"] && firstChildCSS["float"] !== "none") {
+        var touchingSideChild2 = firstChildCSS["float"] === "left" ? "left" : "right";
+        return child2 && (secondChildCSS.clear === "both" || secondChildCSS.clear === touchingSideChild2) ? "vertical" : "horizontal";
     }
-    return child1 && (firstChildCSS.display === 'block' || firstChildCSS.display === 'flex' || firstChildCSS.display === 'table' || firstChildCSS.display === 'grid' || firstChildWidth >= elWidth && elCSS[$64afbd09cd65a300$var$CSSFloatProperty] === 'none' || child2 && elCSS[$64afbd09cd65a300$var$CSSFloatProperty] === 'none' && firstChildWidth + secondChildWidth > elWidth) ? 'vertical' : 'horizontal';
+    return child1 && (firstChildCSS.display === "block" || firstChildCSS.display === "flex" || firstChildCSS.display === "table" || firstChildCSS.display === "grid" || firstChildWidth >= elWidth && elCSS[$64afbd09cd65a300$var$CSSFloatProperty] === "none" || child2 && elCSS[$64afbd09cd65a300$var$CSSFloatProperty] === "none" && firstChildWidth + secondChildWidth > elWidth) ? "vertical" : "horizontal";
 }, $64afbd09cd65a300$var$_dragElInRowColumn = function _dragElInRowColumn(dragRect, targetRect, vertical) {
     var dragElS1Opp = vertical ? dragRect.left : dragRect.top, dragElS2Opp = vertical ? dragRect.right : dragRect.bottom, dragElOppLength = vertical ? dragRect.width : dragRect.height, targetS1Opp = vertical ? targetRect.left : targetRect.top, targetS2Opp = vertical ? targetRect.right : targetRect.bottom, targetOppLength = vertical ? targetRect.width : targetRect.height;
     return dragElS1Opp === targetS1Opp || dragElS2Opp === targetS2Opp || dragElS1Opp + dragElOppLength / 2 === targetS1Opp + targetOppLength / 2;
 }, /**
- * Detects first nearest empty sortable to X and Y position using emptyInsertThreshold.
- * @param  {Number} x      X position
- * @param  {Number} y      Y position
- * @return {HTMLElement}   Element of the first found nearest Sortable
- */ $64afbd09cd65a300$var$_detectNearestEmptySortable = function _detectNearestEmptySortable(x, y) {
+   * Detects first nearest empty sortable to X and Y position using emptyInsertThreshold.
+   * @param  {Number} x      X position
+   * @param  {Number} y      Y position
+   * @return {HTMLElement}   Element of the first found nearest Sortable
+   */ $64afbd09cd65a300$var$_detectNearestEmptySortable = function _detectNearestEmptySortable(x, y) {
     var ret;
     $64afbd09cd65a300$var$sortables.some(function(sortable) {
         var threshold = sortable[$64afbd09cd65a300$var$expando].options.emptyInsertThreshold;
@@ -723,17 +752,17 @@ $64afbd09cd65a300$var$supportDraggable = $64afbd09cd65a300$var$documentExists &&
             // Default pull and put value if same group
             return true;
             else if (value == null || value === false) return false;
-            else if (pull && value === 'clone') return value;
-            else if (typeof value === 'function') return toFn(value(to, from, dragEl, evt), pull)(to, from, dragEl, evt);
+            else if (pull && value === "clone") return value;
+            else if (typeof value === "function") return toFn(value(to, from, dragEl, evt), pull)(to, from, dragEl, evt);
             else {
                 var otherGroup = (pull ? to : from).options.group.name;
-                return value === true || typeof value === 'string' && value === otherGroup || value.join && value.indexOf(otherGroup) > -1;
+                return value === true || typeof value === "string" && value === otherGroup || value.join && value.indexOf(otherGroup) > -1;
             }
         };
     }
     var group = {};
     var originalGroup = options.group;
-    if (!originalGroup || $64afbd09cd65a300$var$_typeof(originalGroup) != 'object') originalGroup = {
+    if (!originalGroup || $64afbd09cd65a300$var$_typeof(originalGroup) != "object") originalGroup = {
         name: originalGroup
     };
     group.name = originalGroup.name;
@@ -742,11 +771,12 @@ $64afbd09cd65a300$var$supportDraggable = $64afbd09cd65a300$var$documentExists &&
     group.revertClone = originalGroup.revertClone;
     options.group = group;
 }, $64afbd09cd65a300$var$_hideGhostForTarget = function _hideGhostForTarget() {
-    if (!$64afbd09cd65a300$var$supportCssPointerEvents && $64afbd09cd65a300$var$ghostEl) $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'display', 'none');
+    if (!$64afbd09cd65a300$var$supportCssPointerEvents && $64afbd09cd65a300$var$ghostEl) $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "display", "none");
 }, $64afbd09cd65a300$var$_unhideGhostForTarget = function _unhideGhostForTarget() {
-    if (!$64afbd09cd65a300$var$supportCssPointerEvents && $64afbd09cd65a300$var$ghostEl) $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'display', '');
-}; // #1184 fix - Prevent click event on fallback if dragged but item not changed position
-if ($64afbd09cd65a300$var$documentExists && !$64afbd09cd65a300$var$ChromeForAndroid) document.addEventListener('click', function(evt) {
+    if (!$64afbd09cd65a300$var$supportCssPointerEvents && $64afbd09cd65a300$var$ghostEl) $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "display", "");
+};
+// #1184 fix - Prevent click event on fallback if dragged but item not changed position
+if ($64afbd09cd65a300$var$documentExists && !$64afbd09cd65a300$var$ChromeForAndroid) document.addEventListener("click", function(evt) {
     if ($64afbd09cd65a300$var$ignoreNextClick) {
         evt.preventDefault();
         evt.stopPropagation && evt.stopPropagation();
@@ -780,7 +810,8 @@ var $64afbd09cd65a300$var$_checkOutsideTargetEl = function _checkOutsideTargetEl
  */ function $64afbd09cd65a300$export$31b3ca70d8f57423(el, options) {
     if (!(el && el.nodeType && el.nodeType === 1)) throw "Sortable: `el` must be an HTMLElement, not ".concat(({}).toString.call(el));
     this.el = el; // root element
-    this.options = options = $64afbd09cd65a300$var$_extends({}, options); // Export instance
+    this.options = options = $64afbd09cd65a300$var$_extends({}, options);
+    // Export instance
     el[$64afbd09cd65a300$var$expando] = this;
     var defaults = {
         group: null,
@@ -788,7 +819,7 @@ var $64afbd09cd65a300$var$_checkOutsideTargetEl = function _checkOutsideTargetEl
         disabled: false,
         store: null,
         handle: null,
-        draggable: /^[uo]l$/i.test(el.nodeName) ? '>li' : '>*',
+        draggable: /^[uo]l$/i.test(el.nodeName) ? ">li" : ">*",
         swapThreshold: 1,
         // percentage; 0 <= x <= 1
         invertSwap: false,
@@ -799,54 +830,58 @@ var $64afbd09cd65a300$var$_checkOutsideTargetEl = function _checkOutsideTargetEl
         direction: function direction() {
             return $64afbd09cd65a300$var$_detectDirection(el, this.options);
         },
-        ghostClass: 'sortable-ghost',
-        chosenClass: 'sortable-chosen',
-        dragClass: 'sortable-drag',
-        ignore: 'a, img',
+        ghostClass: "sortable-ghost",
+        chosenClass: "sortable-chosen",
+        dragClass: "sortable-drag",
+        ignore: "a, img",
         filter: null,
         preventOnFilter: true,
         animation: 0,
         easing: null,
         setData: function setData(dataTransfer, dragEl) {
-            dataTransfer.setData('Text', dragEl.textContent);
+            dataTransfer.setData("Text", dragEl.textContent);
         },
         dropBubble: false,
         dragoverBubble: false,
-        dataIdAttr: 'data-id',
+        dataIdAttr: "data-id",
         delay: 0,
         delayOnTouchOnly: false,
         touchStartThreshold: (Number.parseInt ? Number : window).parseInt(window.devicePixelRatio, 10) || 1,
         forceFallback: false,
-        fallbackClass: 'sortable-fallback',
+        fallbackClass: "sortable-fallback",
         fallbackOnBody: false,
         fallbackTolerance: 0,
         fallbackOffset: {
             x: 0,
             y: 0
         },
-        supportPointer: $64afbd09cd65a300$export$31b3ca70d8f57423.supportPointer !== false && 'PointerEvent' in window && !$64afbd09cd65a300$var$Safari,
+        supportPointer: $64afbd09cd65a300$export$31b3ca70d8f57423.supportPointer !== false && "PointerEvent" in window && !$64afbd09cd65a300$var$Safari,
         emptyInsertThreshold: 5
     };
-    $64afbd09cd65a300$var$PluginManager.initializePlugins(this, el, defaults); // Set default options
+    $64afbd09cd65a300$var$PluginManager.initializePlugins(this, el, defaults);
+    // Set default options
     for(var name in defaults)!(name in options) && (options[name] = defaults[name]);
-    $64afbd09cd65a300$var$_prepareGroup(options); // Bind all private methods
-    for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
-     // Setup drag mode
+    $64afbd09cd65a300$var$_prepareGroup(options);
+    // Bind all private methods
+    for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
+    // Setup drag mode
     this.nativeDraggable = options.forceFallback ? false : $64afbd09cd65a300$var$supportDraggable;
     if (this.nativeDraggable) // Touch start threshold cannot be greater than the native dragstart threshold
     this.options.touchStartThreshold = 1;
-     // Bind events
-    if (options.supportPointer) $64afbd09cd65a300$var$on(el, 'pointerdown', this._onTapStart);
+    // Bind events
+    if (options.supportPointer) $64afbd09cd65a300$var$on(el, "pointerdown", this._onTapStart);
     else {
-        $64afbd09cd65a300$var$on(el, 'mousedown', this._onTapStart);
-        $64afbd09cd65a300$var$on(el, 'touchstart', this._onTapStart);
+        $64afbd09cd65a300$var$on(el, "mousedown", this._onTapStart);
+        $64afbd09cd65a300$var$on(el, "touchstart", this._onTapStart);
     }
     if (this.nativeDraggable) {
-        $64afbd09cd65a300$var$on(el, 'dragover', this);
-        $64afbd09cd65a300$var$on(el, 'dragenter', this);
+        $64afbd09cd65a300$var$on(el, "dragover", this);
+        $64afbd09cd65a300$var$on(el, "dragenter", this);
     }
-    $64afbd09cd65a300$var$sortables.push(this.el); // Restore sorting
-    options.store && options.store.get && this.sort(options.store.get(this) || []); // Add animation state manager
+    $64afbd09cd65a300$var$sortables.push(this.el);
+    // Restore sorting
+    options.store && options.store.get && this.sort(options.store.get(this) || []);
+    // Add animation state manager
     $64afbd09cd65a300$var$_extends(this, $64afbd09cd65a300$var$AnimationStateManager());
 }
 $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.prototype */ {
@@ -855,54 +890,56 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
         if (!this.el.contains(target) && target !== this.el) $64afbd09cd65a300$var$lastTarget = null;
     },
     _getDirection: function _getDirection(evt, target) {
-        return typeof this.options.direction === 'function' ? this.options.direction.call(this, evt, target, $64afbd09cd65a300$var$dragEl) : this.options.direction;
+        return typeof this.options.direction === "function" ? this.options.direction.call(this, evt, target, $64afbd09cd65a300$var$dragEl) : this.options.direction;
     },
     _onTapStart: function _onTapStart(/** Event|TouchEvent */ evt) {
         if (!evt.cancelable) return;
-        var _this = this, el = this.el, options = this.options, preventOnFilter = options.preventOnFilter, type = evt.type, touch = evt.touches && evt.touches[0] || evt.pointerType && evt.pointerType === 'touch' && evt, target = (touch || evt).target, originalTarget = evt.target.shadowRoot && (evt.path && evt.path[0] || evt.composedPath && evt.composedPath()[0]) || target, filter = options.filter;
-        $64afbd09cd65a300$var$_saveInputCheckedState(el); // Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
+        var _this = this, el = this.el, options = this.options, preventOnFilter = options.preventOnFilter, type = evt.type, touch = evt.touches && evt.touches[0] || evt.pointerType && evt.pointerType === "touch" && evt, target = (touch || evt).target, originalTarget = evt.target.shadowRoot && (evt.path && evt.path[0] || evt.composedPath && evt.composedPath()[0]) || target, filter = options.filter;
+        $64afbd09cd65a300$var$_saveInputCheckedState(el);
+        // Don't trigger start event when an element is been dragged, otherwise the evt.oldindex always wrong when set option.group.
         if ($64afbd09cd65a300$var$dragEl) return;
         if (/mousedown|pointerdown/.test(type) && evt.button !== 0 || options.disabled) return; // only left button and enabled
-         // cancel dnd if original target is content editable
+        // cancel dnd if original target is content editable
         if (originalTarget.isContentEditable) return;
-         // Safari ignores further event handling after mousedown
-        if (!this.nativeDraggable && $64afbd09cd65a300$var$Safari && target && target.tagName.toUpperCase() === 'SELECT') return;
+        // Safari ignores further event handling after mousedown
+        if (!this.nativeDraggable && $64afbd09cd65a300$var$Safari && target && target.tagName.toUpperCase() === "SELECT") return;
         target = $64afbd09cd65a300$var$closest(target, options.draggable, el, false);
         if (target && target.animated) return;
         if ($64afbd09cd65a300$var$lastDownEl === target) // Ignoring duplicate `down`
         return;
-         // Get the index of the dragged element within its parent
+        // Get the index of the dragged element within its parent
         $64afbd09cd65a300$var$oldIndex = $64afbd09cd65a300$var$index(target);
-        $64afbd09cd65a300$var$oldDraggableIndex = $64afbd09cd65a300$var$index(target, options.draggable); // Check filter
-        if (typeof filter === 'function') {
+        $64afbd09cd65a300$var$oldDraggableIndex = $64afbd09cd65a300$var$index(target, options.draggable);
+        // Check filter
+        if (typeof filter === "function") {
             if (filter.call(this, evt, target, this)) {
                 $64afbd09cd65a300$var$_dispatchEvent({
                     sortable: _this,
                     rootEl: originalTarget,
-                    name: 'filter',
+                    name: "filter",
                     targetEl: target,
                     toEl: el,
                     fromEl: el
                 });
-                $64afbd09cd65a300$var$pluginEvent('filter', _this, {
+                $64afbd09cd65a300$var$pluginEvent("filter", _this, {
                     evt: evt
                 });
                 preventOnFilter && evt.cancelable && evt.preventDefault();
                 return; // cancel dnd
             }
         } else if (filter) {
-            filter = filter.split(',').some(function(criteria) {
+            filter = filter.split(",").some(function(criteria) {
                 criteria = $64afbd09cd65a300$var$closest(originalTarget, criteria.trim(), el, false);
                 if (criteria) {
                     $64afbd09cd65a300$var$_dispatchEvent({
                         sortable: _this,
                         rootEl: criteria,
-                        name: 'filter',
+                        name: "filter",
                         targetEl: target,
                         fromEl: el,
                         toEl: el
                     });
-                    $64afbd09cd65a300$var$pluginEvent('filter', _this, {
+                    $64afbd09cd65a300$var$pluginEvent("filter", _this, {
                         evt: evt
                     });
                     return true;
@@ -914,7 +951,7 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
             }
         }
         if (options.handle && !$64afbd09cd65a300$var$closest(originalTarget, options.handle, el, false)) return;
-         // Prepare `dragstart`
+        // Prepare `dragstart`
         this._prepareDragStart(evt, touch, target);
     },
     _prepareDragStart: function _prepareDragStart(/** Event */ evt, /** Touch */ touch, /** HTMLElement */ target) {
@@ -937,56 +974,63 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
             $64afbd09cd65a300$var$tapDistanceTop = $64afbd09cd65a300$var$tapEvt.clientY - dragRect.top;
             this._lastX = (touch || evt).clientX;
             this._lastY = (touch || evt).clientY;
-            $64afbd09cd65a300$var$dragEl.style['will-change'] = 'all';
+            $64afbd09cd65a300$var$dragEl.style["will-change"] = "all";
             dragStartFn = function dragStartFn() {
-                $64afbd09cd65a300$var$pluginEvent('delayEnded', _this, {
+                $64afbd09cd65a300$var$pluginEvent("delayEnded", _this, {
                     evt: evt
                 });
                 if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
                     _this._onDrop();
                     return;
-                } // Delayed drag has been triggered
+                }
+                // Delayed drag has been triggered
                 // we can re-enable the events: touchmove/mousemove
                 _this._disableDelayedDragEvents();
                 if (!$64afbd09cd65a300$var$FireFox && _this.nativeDraggable) $64afbd09cd65a300$var$dragEl.draggable = true;
-                 // Bind the events: dragstart/dragend
-                _this._triggerDragStart(evt, touch); // Drag start event
+                // Bind the events: dragstart/dragend
+                _this._triggerDragStart(evt, touch);
+                // Drag start event
                 $64afbd09cd65a300$var$_dispatchEvent({
                     sortable: _this,
-                    name: 'choose',
+                    name: "choose",
                     originalEvent: evt
-                }); // Chosen item
+                });
+                // Chosen item
                 $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, options.chosenClass, true);
-            }; // Disable "draggable"
-            options.ignore.split(',').forEach(function(criteria) {
+            };
+            // Disable "draggable"
+            options.ignore.split(",").forEach(function(criteria) {
                 $64afbd09cd65a300$var$find($64afbd09cd65a300$var$dragEl, criteria.trim(), $64afbd09cd65a300$var$_disableDraggable);
             });
-            $64afbd09cd65a300$var$on(ownerDocument, 'dragover', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
-            $64afbd09cd65a300$var$on(ownerDocument, 'mousemove', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
-            $64afbd09cd65a300$var$on(ownerDocument, 'touchmove', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
-            $64afbd09cd65a300$var$on(ownerDocument, 'mouseup', _this._onDrop);
-            $64afbd09cd65a300$var$on(ownerDocument, 'touchend', _this._onDrop);
-            $64afbd09cd65a300$var$on(ownerDocument, 'touchcancel', _this._onDrop); // Make dragEl draggable (must be before delay for FireFox)
+            $64afbd09cd65a300$var$on(ownerDocument, "dragover", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+            $64afbd09cd65a300$var$on(ownerDocument, "mousemove", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+            $64afbd09cd65a300$var$on(ownerDocument, "touchmove", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+            $64afbd09cd65a300$var$on(ownerDocument, "mouseup", _this._onDrop);
+            $64afbd09cd65a300$var$on(ownerDocument, "touchend", _this._onDrop);
+            $64afbd09cd65a300$var$on(ownerDocument, "touchcancel", _this._onDrop);
+            // Make dragEl draggable (must be before delay for FireFox)
             if ($64afbd09cd65a300$var$FireFox && this.nativeDraggable) {
                 this.options.touchStartThreshold = 4;
                 $64afbd09cd65a300$var$dragEl.draggable = true;
             }
-            $64afbd09cd65a300$var$pluginEvent('delayStart', this, {
+            $64afbd09cd65a300$var$pluginEvent("delayStart", this, {
                 evt: evt
-            }); // Delay is impossible for native DnD in Edge or IE
+            });
+            // Delay is impossible for native DnD in Edge or IE
             if (options.delay && (!options.delayOnTouchOnly || touch) && (!this.nativeDraggable || !($64afbd09cd65a300$var$Edge || $64afbd09cd65a300$var$IE11OrLess))) {
                 if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
                     this._onDrop();
                     return;
-                } // If the user moves the pointer or let go the click or touch
+                }
+                // If the user moves the pointer or let go the click or touch
                 // before the delay has been reached:
                 // disable the delayed drag
-                $64afbd09cd65a300$var$on(ownerDocument, 'mouseup', _this._disableDelayedDrag);
-                $64afbd09cd65a300$var$on(ownerDocument, 'touchend', _this._disableDelayedDrag);
-                $64afbd09cd65a300$var$on(ownerDocument, 'touchcancel', _this._disableDelayedDrag);
-                $64afbd09cd65a300$var$on(ownerDocument, 'mousemove', _this._delayedDragTouchMoveHandler);
-                $64afbd09cd65a300$var$on(ownerDocument, 'touchmove', _this._delayedDragTouchMoveHandler);
-                options.supportPointer && $64afbd09cd65a300$var$on(ownerDocument, 'pointermove', _this._delayedDragTouchMoveHandler);
+                $64afbd09cd65a300$var$on(ownerDocument, "mouseup", _this._disableDelayedDrag);
+                $64afbd09cd65a300$var$on(ownerDocument, "touchend", _this._disableDelayedDrag);
+                $64afbd09cd65a300$var$on(ownerDocument, "touchcancel", _this._disableDelayedDrag);
+                $64afbd09cd65a300$var$on(ownerDocument, "mousemove", _this._delayedDragTouchMoveHandler);
+                $64afbd09cd65a300$var$on(ownerDocument, "touchmove", _this._delayedDragTouchMoveHandler);
+                options.supportPointer && $64afbd09cd65a300$var$on(ownerDocument, "pointermove", _this._delayedDragTouchMoveHandler);
                 _this._dragStartTimer = setTimeout(dragStartFn, options.delay);
             } else dragStartFn();
         }
@@ -1002,22 +1046,22 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
     },
     _disableDelayedDragEvents: function _disableDelayedDragEvents() {
         var ownerDocument = this.el.ownerDocument;
-        $64afbd09cd65a300$var$off(ownerDocument, 'mouseup', this._disableDelayedDrag);
-        $64afbd09cd65a300$var$off(ownerDocument, 'touchend', this._disableDelayedDrag);
-        $64afbd09cd65a300$var$off(ownerDocument, 'touchcancel', this._disableDelayedDrag);
-        $64afbd09cd65a300$var$off(ownerDocument, 'mousemove', this._delayedDragTouchMoveHandler);
-        $64afbd09cd65a300$var$off(ownerDocument, 'touchmove', this._delayedDragTouchMoveHandler);
-        $64afbd09cd65a300$var$off(ownerDocument, 'pointermove', this._delayedDragTouchMoveHandler);
+        $64afbd09cd65a300$var$off(ownerDocument, "mouseup", this._disableDelayedDrag);
+        $64afbd09cd65a300$var$off(ownerDocument, "touchend", this._disableDelayedDrag);
+        $64afbd09cd65a300$var$off(ownerDocument, "touchcancel", this._disableDelayedDrag);
+        $64afbd09cd65a300$var$off(ownerDocument, "mousemove", this._delayedDragTouchMoveHandler);
+        $64afbd09cd65a300$var$off(ownerDocument, "touchmove", this._delayedDragTouchMoveHandler);
+        $64afbd09cd65a300$var$off(ownerDocument, "pointermove", this._delayedDragTouchMoveHandler);
     },
     _triggerDragStart: function _triggerDragStart(/** Event */ evt, /** Touch */ touch) {
-        touch = touch || evt.pointerType == 'touch' && evt;
+        touch = touch || evt.pointerType == "touch" && evt;
         if (!this.nativeDraggable || touch) {
-            if (this.options.supportPointer) $64afbd09cd65a300$var$on(document, 'pointermove', this._onTouchMove);
-            else if (touch) $64afbd09cd65a300$var$on(document, 'touchmove', this._onTouchMove);
-            else $64afbd09cd65a300$var$on(document, 'mousemove', this._onTouchMove);
+            if (this.options.supportPointer) $64afbd09cd65a300$var$on(document, "pointermove", this._onTouchMove);
+            else if (touch) $64afbd09cd65a300$var$on(document, "touchmove", this._onTouchMove);
+            else $64afbd09cd65a300$var$on(document, "mousemove", this._onTouchMove);
         } else {
-            $64afbd09cd65a300$var$on($64afbd09cd65a300$var$dragEl, 'dragend', this);
-            $64afbd09cd65a300$var$on($64afbd09cd65a300$var$rootEl, 'dragstart', this._onDragStart);
+            $64afbd09cd65a300$var$on($64afbd09cd65a300$var$dragEl, "dragend", this);
+            $64afbd09cd65a300$var$on($64afbd09cd65a300$var$rootEl, "dragstart", this._onDragStart);
         }
         try {
             if (document.selection) // Timeout neccessary for IE9
@@ -1030,18 +1074,20 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
     _dragStarted: function _dragStarted(fallback, evt) {
         $64afbd09cd65a300$var$awaitingDragStarted = false;
         if ($64afbd09cd65a300$var$rootEl && $64afbd09cd65a300$var$dragEl) {
-            $64afbd09cd65a300$var$pluginEvent('dragStarted', this, {
+            $64afbd09cd65a300$var$pluginEvent("dragStarted", this, {
                 evt: evt
             });
-            if (this.nativeDraggable) $64afbd09cd65a300$var$on(document, 'dragover', $64afbd09cd65a300$var$_checkOutsideTargetEl);
-            var options = this.options; // Apply effect
+            if (this.nativeDraggable) $64afbd09cd65a300$var$on(document, "dragover", $64afbd09cd65a300$var$_checkOutsideTargetEl);
+            var options = this.options;
+            // Apply effect
             !fallback && $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, options.dragClass, false);
             $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, options.ghostClass, true);
             $64afbd09cd65a300$export$31b3ca70d8f57423.active = this;
-            fallback && this._appendGhost(); // Drag start event
+            fallback && this._appendGhost();
+            // Drag start event
             $64afbd09cd65a300$var$_dispatchEvent({
                 sortable: this,
-                name: 'start',
+                name: "start",
                 originalEvent: evt
             });
         } else this._nulling();
@@ -1071,13 +1117,14 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                     if (inserted && !this.options.dragoverBubble) break;
                 }
                 target = parent; // store last element
-            }while (parent = parent.parentNode)
+            }while (parent = parent.parentNode);
             $64afbd09cd65a300$var$_unhideGhostForTarget();
         }
     },
     _onTouchMove: function _onTouchMove(/**TouchEvent*/ evt) {
         if ($64afbd09cd65a300$var$tapEvt) {
-            var options = this.options, fallbackTolerance = options.fallbackTolerance, fallbackOffset = options.fallbackOffset, touch = evt.touches ? evt.touches[0] : evt, ghostMatrix = $64afbd09cd65a300$var$ghostEl && $64afbd09cd65a300$var$matrix($64afbd09cd65a300$var$ghostEl, true), scaleX = $64afbd09cd65a300$var$ghostEl && ghostMatrix && ghostMatrix.a, scaleY = $64afbd09cd65a300$var$ghostEl && ghostMatrix && ghostMatrix.d, relativeScrollOffset = $64afbd09cd65a300$var$PositionGhostAbsolutely && $64afbd09cd65a300$var$ghostRelativeParent && $64afbd09cd65a300$var$getRelativeScrollOffset($64afbd09cd65a300$var$ghostRelativeParent), dx = (touch.clientX - $64afbd09cd65a300$var$tapEvt.clientX + fallbackOffset.x) / (scaleX || 1) + (relativeScrollOffset ? relativeScrollOffset[0] - $64afbd09cd65a300$var$ghostRelativeParentInitialScroll[0] : 0) / (scaleX || 1), dy = (touch.clientY - $64afbd09cd65a300$var$tapEvt.clientY + fallbackOffset.y) / (scaleY || 1) + (relativeScrollOffset ? relativeScrollOffset[1] - $64afbd09cd65a300$var$ghostRelativeParentInitialScroll[1] : 0) / (scaleY || 1); // only set the status to dragging, when we are actually dragging
+            var options = this.options, fallbackTolerance = options.fallbackTolerance, fallbackOffset = options.fallbackOffset, touch = evt.touches ? evt.touches[0] : evt, ghostMatrix = $64afbd09cd65a300$var$ghostEl && $64afbd09cd65a300$var$matrix($64afbd09cd65a300$var$ghostEl, true), scaleX = $64afbd09cd65a300$var$ghostEl && ghostMatrix && ghostMatrix.a, scaleY = $64afbd09cd65a300$var$ghostEl && ghostMatrix && ghostMatrix.d, relativeScrollOffset = $64afbd09cd65a300$var$PositionGhostAbsolutely && $64afbd09cd65a300$var$ghostRelativeParent && $64afbd09cd65a300$var$getRelativeScrollOffset($64afbd09cd65a300$var$ghostRelativeParent), dx = (touch.clientX - $64afbd09cd65a300$var$tapEvt.clientX + fallbackOffset.x) / (scaleX || 1) + (relativeScrollOffset ? relativeScrollOffset[0] - $64afbd09cd65a300$var$ghostRelativeParentInitialScroll[0] : 0) / (scaleX || 1), dy = (touch.clientY - $64afbd09cd65a300$var$tapEvt.clientY + fallbackOffset.y) / (scaleY || 1) + (relativeScrollOffset ? relativeScrollOffset[1] - $64afbd09cd65a300$var$ghostRelativeParentInitialScroll[1] : 0) / (scaleY || 1);
+            // only set the status to dragging, when we are actually dragging
             if (!$64afbd09cd65a300$export$31b3ca70d8f57423.active && !$64afbd09cd65a300$var$awaitingDragStarted) {
                 if (fallbackTolerance && Math.max(Math.abs(touch.clientX - this._lastX), Math.abs(touch.clientY - this._lastY)) < fallbackTolerance) return;
                 this._onDragStart(evt, true);
@@ -1095,10 +1142,10 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                     f: dy
                 };
                 var cssMatrix = "matrix(".concat(ghostMatrix.a, ",").concat(ghostMatrix.b, ",").concat(ghostMatrix.c, ",").concat(ghostMatrix.d, ",").concat(ghostMatrix.e, ",").concat(ghostMatrix.f, ")");
-                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'webkitTransform', cssMatrix);
-                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'mozTransform', cssMatrix);
-                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'msTransform', cssMatrix);
-                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'transform', cssMatrix);
+                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "webkitTransform", cssMatrix);
+                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "mozTransform", cssMatrix);
+                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "msTransform", cssMatrix);
+                $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "transform", cssMatrix);
                 $64afbd09cd65a300$var$lastDx = dx;
                 $64afbd09cd65a300$var$lastDy = dy;
                 $64afbd09cd65a300$var$touchEvt = touch;
@@ -1110,11 +1157,12 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
         // Bug if using scale(): https://stackoverflow.com/questions/2637058
         // Not being adjusted for
         if (!$64afbd09cd65a300$var$ghostEl) {
-            var container = this.options.fallbackOnBody ? document.body : $64afbd09cd65a300$var$rootEl, rect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl, true, $64afbd09cd65a300$var$PositionGhostAbsolutely, true, container), options = this.options; // Position absolutely
+            var container = this.options.fallbackOnBody ? document.body : $64afbd09cd65a300$var$rootEl, rect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl, true, $64afbd09cd65a300$var$PositionGhostAbsolutely, true, container), options = this.options;
+            // Position absolutely
             if ($64afbd09cd65a300$var$PositionGhostAbsolutely) {
                 // Get relatively positioned parent
                 $64afbd09cd65a300$var$ghostRelativeParent = container;
-                while($64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostRelativeParent, 'position') === 'static' && $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostRelativeParent, 'transform') === 'none' && $64afbd09cd65a300$var$ghostRelativeParent !== document)$64afbd09cd65a300$var$ghostRelativeParent = $64afbd09cd65a300$var$ghostRelativeParent.parentNode;
+                while($64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostRelativeParent, "position") === "static" && $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostRelativeParent, "transform") === "none" && $64afbd09cd65a300$var$ghostRelativeParent !== document)$64afbd09cd65a300$var$ghostRelativeParent = $64afbd09cd65a300$var$ghostRelativeParent.parentNode;
                 if ($64afbd09cd65a300$var$ghostRelativeParent !== document.body && $64afbd09cd65a300$var$ghostRelativeParent !== document.documentElement) {
                     if ($64afbd09cd65a300$var$ghostRelativeParent === document) $64afbd09cd65a300$var$ghostRelativeParent = $64afbd09cd65a300$var$getWindowScrollingElement();
                     rect.top += $64afbd09cd65a300$var$ghostRelativeParent.scrollTop;
@@ -1126,105 +1174,111 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
             $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$ghostEl, options.ghostClass, false);
             $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$ghostEl, options.fallbackClass, true);
             $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$ghostEl, options.dragClass, true);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'transition', '');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'transform', '');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'box-sizing', 'border-box');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'margin', 0);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'top', rect.top);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'left', rect.left);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'width', rect.width);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'height', rect.height);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'opacity', '0.8');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'position', $64afbd09cd65a300$var$PositionGhostAbsolutely ? 'absolute' : 'fixed');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'zIndex', '100000');
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'pointerEvents', 'none');
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "transition", "");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "transform", "");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "box-sizing", "border-box");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "margin", 0);
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "top", rect.top);
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "left", rect.left);
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "width", rect.width);
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "height", rect.height);
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "opacity", "0.8");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "position", $64afbd09cd65a300$var$PositionGhostAbsolutely ? "absolute" : "fixed");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "zIndex", "100000");
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "pointerEvents", "none");
             $64afbd09cd65a300$export$31b3ca70d8f57423.ghost = $64afbd09cd65a300$var$ghostEl;
-            container.appendChild($64afbd09cd65a300$var$ghostEl); // Set transform-origin
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, 'transform-origin', $64afbd09cd65a300$var$tapDistanceLeft / parseInt($64afbd09cd65a300$var$ghostEl.style.width) * 100 + '% ' + $64afbd09cd65a300$var$tapDistanceTop / parseInt($64afbd09cd65a300$var$ghostEl.style.height) * 100 + '%');
+            container.appendChild($64afbd09cd65a300$var$ghostEl);
+            // Set transform-origin
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$ghostEl, "transform-origin", $64afbd09cd65a300$var$tapDistanceLeft / parseInt($64afbd09cd65a300$var$ghostEl.style.width) * 100 + "% " + $64afbd09cd65a300$var$tapDistanceTop / parseInt($64afbd09cd65a300$var$ghostEl.style.height) * 100 + "%");
         }
     },
     _onDragStart: function _onDragStart(/**Event*/ evt, /**boolean*/ fallback) {
         var _this = this;
         var dataTransfer = evt.dataTransfer;
         var options = _this.options;
-        $64afbd09cd65a300$var$pluginEvent('dragStart', this, {
+        $64afbd09cd65a300$var$pluginEvent("dragStart", this, {
             evt: evt
         });
         if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
             this._onDrop();
             return;
         }
-        $64afbd09cd65a300$var$pluginEvent('setupClone', this);
+        $64afbd09cd65a300$var$pluginEvent("setupClone", this);
         if (!$64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
             $64afbd09cd65a300$var$cloneEl = $64afbd09cd65a300$var$clone($64afbd09cd65a300$var$dragEl);
             $64afbd09cd65a300$var$cloneEl.removeAttribute("id");
             $64afbd09cd65a300$var$cloneEl.draggable = false;
-            $64afbd09cd65a300$var$cloneEl.style['will-change'] = '';
+            $64afbd09cd65a300$var$cloneEl.style["will-change"] = "";
             this._hideClone();
             $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$cloneEl, this.options.chosenClass, false);
             $64afbd09cd65a300$export$31b3ca70d8f57423.clone = $64afbd09cd65a300$var$cloneEl;
-        } // #1143: IFrame support workaround
+        }
+        // #1143: IFrame support workaround
         _this.cloneId = $64afbd09cd65a300$var$_nextTick(function() {
-            $64afbd09cd65a300$var$pluginEvent('clone', _this);
+            $64afbd09cd65a300$var$pluginEvent("clone", _this);
             if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return;
             if (!_this.options.removeCloneOnHide) $64afbd09cd65a300$var$rootEl.insertBefore($64afbd09cd65a300$var$cloneEl, $64afbd09cd65a300$var$dragEl);
             _this._hideClone();
             $64afbd09cd65a300$var$_dispatchEvent({
                 sortable: _this,
-                name: 'clone'
+                name: "clone"
             });
         });
-        !fallback && $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, options.dragClass, true); // Set proper drop events
+        !fallback && $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, options.dragClass, true);
+        // Set proper drop events
         if (fallback) {
             $64afbd09cd65a300$var$ignoreNextClick = true;
             _this._loopId = setInterval(_this._emulateDragOver, 50);
         } else {
             // Undo what was set in _prepareDragStart before drag started
-            $64afbd09cd65a300$var$off(document, 'mouseup', _this._onDrop);
-            $64afbd09cd65a300$var$off(document, 'touchend', _this._onDrop);
-            $64afbd09cd65a300$var$off(document, 'touchcancel', _this._onDrop);
+            $64afbd09cd65a300$var$off(document, "mouseup", _this._onDrop);
+            $64afbd09cd65a300$var$off(document, "touchend", _this._onDrop);
+            $64afbd09cd65a300$var$off(document, "touchcancel", _this._onDrop);
             if (dataTransfer) {
-                dataTransfer.effectAllowed = 'move';
+                dataTransfer.effectAllowed = "move";
                 options.setData && options.setData.call(_this, dataTransfer, $64afbd09cd65a300$var$dragEl);
             }
-            $64afbd09cd65a300$var$on(document, 'drop', _this); // #1276 fix:
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$dragEl, 'transform', 'translateZ(0)');
+            $64afbd09cd65a300$var$on(document, "drop", _this);
+            // #1276 fix:
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$dragEl, "transform", "translateZ(0)");
         }
         $64afbd09cd65a300$var$awaitingDragStarted = true;
         _this._dragStartId = $64afbd09cd65a300$var$_nextTick(_this._dragStarted.bind(_this, fallback, evt));
-        $64afbd09cd65a300$var$on(document, 'selectstart', _this);
+        $64afbd09cd65a300$var$on(document, "selectstart", _this);
         $64afbd09cd65a300$var$moved = true;
-        if ($64afbd09cd65a300$var$Safari) $64afbd09cd65a300$var$css(document.body, 'user-select', 'none');
+        if ($64afbd09cd65a300$var$Safari) $64afbd09cd65a300$var$css(document.body, "user-select", "none");
     },
     // Returns true - if no further action is needed (either inserted or another condition)
     _onDragOver: function _onDragOver(/**Event*/ evt) {
-        var el = this.el, target1 = evt.target, dragRect, targetRect, revert, options = this.options, group = options.group, activeSortable = $64afbd09cd65a300$export$31b3ca70d8f57423.active, isOwner = $64afbd09cd65a300$var$activeGroup === group, canSort = options.sort, fromSortable = $64afbd09cd65a300$var$putSortable || activeSortable, vertical, _this = this, completedFired = false;
+        var el = this.el, target = evt.target, dragRect, targetRect, revert, options = this.options, group = options.group, activeSortable = $64afbd09cd65a300$export$31b3ca70d8f57423.active, isOwner = $64afbd09cd65a300$var$activeGroup === group, canSort = options.sort, fromSortable = $64afbd09cd65a300$var$putSortable || activeSortable, vertical, _this = this, completedFired = false;
         if ($64afbd09cd65a300$var$_silent) return;
         function dragOverEvent(name, extra) {
             $64afbd09cd65a300$var$pluginEvent(name, _this, $64afbd09cd65a300$var$_objectSpread2({
                 evt: evt,
                 isOwner: isOwner,
-                axis: vertical ? 'vertical' : 'horizontal',
+                axis: vertical ? "vertical" : "horizontal",
                 revert: revert,
                 dragRect: dragRect,
                 targetRect: targetRect,
                 canSort: canSort,
                 fromSortable: fromSortable,
-                target: target1,
+                target: target,
                 completed: completed,
                 onMove: function onMove(target, after) {
                     return $64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target, $64afbd09cd65a300$var$getRect(target), evt, after);
                 },
                 changed: changed
             }, extra));
-        } // Capture animation state
+        }
+        // Capture animation state
         function capture() {
-            dragOverEvent('dragOverAnimationCapture');
+            dragOverEvent("dragOverAnimationCapture");
             _this.captureAnimationState();
             if (_this !== fromSortable) fromSortable.captureAnimationState();
-        } // Return invocation when dragEl is inserted (or completed)
+        }
+        // Return invocation when dragEl is inserted (or completed)
         function completed(insertion) {
-            dragOverEvent('dragOverCompleted', {
+            dragOverEvent("dragOverCompleted", {
                 insertion: insertion
             });
             if (insertion) {
@@ -1238,32 +1292,35 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                 }
                 if ($64afbd09cd65a300$var$putSortable !== _this && _this !== $64afbd09cd65a300$export$31b3ca70d8f57423.active) $64afbd09cd65a300$var$putSortable = _this;
                 else if (_this === $64afbd09cd65a300$export$31b3ca70d8f57423.active && $64afbd09cd65a300$var$putSortable) $64afbd09cd65a300$var$putSortable = null;
-                 // Animation
-                if (fromSortable === _this) _this._ignoreWhileAnimating = target1;
+                // Animation
+                if (fromSortable === _this) _this._ignoreWhileAnimating = target;
                 _this.animateAll(function() {
-                    dragOverEvent('dragOverAnimationComplete');
+                    dragOverEvent("dragOverAnimationComplete");
                     _this._ignoreWhileAnimating = null;
                 });
                 if (_this !== fromSortable) {
                     fromSortable.animateAll();
                     fromSortable._ignoreWhileAnimating = null;
                 }
-            } // Null lastTarget if it is not inside a previously swapped element
-            if (target1 === $64afbd09cd65a300$var$dragEl && !$64afbd09cd65a300$var$dragEl.animated || target1 === el && !target1.animated) $64afbd09cd65a300$var$lastTarget = null;
-             // no bubbling and not fallback
-            if (!options.dragoverBubble && !evt.rootEl && target1 !== document) {
-                $64afbd09cd65a300$var$dragEl.parentNode[$64afbd09cd65a300$var$expando]._isOutsideThisEl(evt.target); // Do not detect for empty insert if already inserted
+            }
+            // Null lastTarget if it is not inside a previously swapped element
+            if (target === $64afbd09cd65a300$var$dragEl && !$64afbd09cd65a300$var$dragEl.animated || target === el && !target.animated) $64afbd09cd65a300$var$lastTarget = null;
+            // no bubbling and not fallback
+            if (!options.dragoverBubble && !evt.rootEl && target !== document) {
+                $64afbd09cd65a300$var$dragEl.parentNode[$64afbd09cd65a300$var$expando]._isOutsideThisEl(evt.target);
+                // Do not detect for empty insert if already inserted
                 !insertion && $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent(evt);
             }
             !options.dragoverBubble && evt.stopPropagation && evt.stopPropagation();
             return completedFired = true;
-        } // Call when dragEl has been inserted
+        }
+        // Call when dragEl has been inserted
         function changed() {
             $64afbd09cd65a300$var$newIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl);
             $64afbd09cd65a300$var$newDraggableIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl, options.draggable);
             $64afbd09cd65a300$var$_dispatchEvent({
                 sortable: _this,
-                name: 'change',
+                name: "change",
                 toEl: el,
                 newIndex: $64afbd09cd65a300$var$newIndex,
                 newDraggableIndex: $64afbd09cd65a300$var$newDraggableIndex,
@@ -1271,22 +1328,22 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
             });
         }
         if (evt.preventDefault !== void 0) evt.cancelable && evt.preventDefault();
-        target1 = $64afbd09cd65a300$var$closest(target1, options.draggable, el, true);
-        dragOverEvent('dragOver');
+        target = $64afbd09cd65a300$var$closest(target, options.draggable, el, true);
+        dragOverEvent("dragOver");
         if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return completedFired;
-        if ($64afbd09cd65a300$var$dragEl.contains(evt.target) || target1.animated && target1.animatingX && target1.animatingY || _this._ignoreWhileAnimating === target1) return completed(false);
+        if ($64afbd09cd65a300$var$dragEl.contains(evt.target) || target.animated && target.animatingX && target.animatingY || _this._ignoreWhileAnimating === target) return completed(false);
         $64afbd09cd65a300$var$ignoreNextClick = false;
         if (activeSortable && !options.disabled && (isOwner ? canSort || (revert = $64afbd09cd65a300$var$parentEl !== $64afbd09cd65a300$var$rootEl // Reverting item into the original list
         ) : $64afbd09cd65a300$var$putSortable === this || (this.lastPutMode = $64afbd09cd65a300$var$activeGroup.checkPull(this, activeSortable, $64afbd09cd65a300$var$dragEl, evt)) && group.checkPut(this, activeSortable, $64afbd09cd65a300$var$dragEl, evt))) {
-            vertical = this._getDirection(evt, target1) === 'vertical';
+            vertical = this._getDirection(evt, target) === "vertical";
             dragRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl);
-            dragOverEvent('dragOverValid');
+            dragOverEvent("dragOverValid");
             if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return completedFired;
             if (revert) {
                 $64afbd09cd65a300$var$parentEl = $64afbd09cd65a300$var$rootEl; // actualization
                 capture();
                 this._hideClone();
-                dragOverEvent('revert');
+                dragOverEvent("revert");
                 if (!$64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
                     if ($64afbd09cd65a300$var$nextEl) $64afbd09cd65a300$var$rootEl.insertBefore($64afbd09cd65a300$var$dragEl, $64afbd09cd65a300$var$nextEl);
                     else $64afbd09cd65a300$var$rootEl.appendChild($64afbd09cd65a300$var$dragEl);
@@ -1298,10 +1355,10 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                 // Insert to end of list
                 // If already at end of list: Do not insert
                 if (elLastChild === $64afbd09cd65a300$var$dragEl) return completed(false);
-                 // if there is a last element, it is the target
-                if (elLastChild && el === evt.target) target1 = elLastChild;
-                if (target1) targetRect = $64afbd09cd65a300$var$getRect(target1);
-                if ($64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target1, targetRect, evt, !!target1) !== false) {
+                // if there is a last element, it is the target
+                if (elLastChild && el === evt.target) target = elLastChild;
+                if (target) targetRect = $64afbd09cd65a300$var$getRect(target);
+                if ($64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target, targetRect, evt, !!target) !== false) {
                     capture();
                     if (elLastChild && elLastChild.nextSibling) // the last draggable element is not the last node
                     el.insertBefore($64afbd09cd65a300$var$dragEl, elLastChild.nextSibling);
@@ -1314,24 +1371,24 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                 // Insert to start of list
                 var firstChild = $64afbd09cd65a300$var$getChild(el, 0, options, true);
                 if (firstChild === $64afbd09cd65a300$var$dragEl) return completed(false);
-                target1 = firstChild;
-                targetRect = $64afbd09cd65a300$var$getRect(target1);
-                if ($64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target1, targetRect, evt, false) !== false) {
+                target = firstChild;
+                targetRect = $64afbd09cd65a300$var$getRect(target);
+                if ($64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target, targetRect, evt, false) !== false) {
                     capture();
                     el.insertBefore($64afbd09cd65a300$var$dragEl, firstChild);
                     $64afbd09cd65a300$var$parentEl = el; // actualization
                     changed();
                     return completed(true);
                 }
-            } else if (target1.parentNode === el) {
-                targetRect = $64afbd09cd65a300$var$getRect(target1);
-                var direction = 0, targetBeforeFirstSwap, differentLevel = $64afbd09cd65a300$var$dragEl.parentNode !== el, differentRowCol = !$64afbd09cd65a300$var$_dragElInRowColumn($64afbd09cd65a300$var$dragEl.animated && $64afbd09cd65a300$var$dragEl.toRect || dragRect, target1.animated && target1.toRect || targetRect, vertical), side1 = vertical ? 'top' : 'left', scrolledPastTop = $64afbd09cd65a300$var$isScrolledPast(target1, 'top', 'top') || $64afbd09cd65a300$var$isScrolledPast($64afbd09cd65a300$var$dragEl, 'top', 'top'), scrollBefore = scrolledPastTop ? scrolledPastTop.scrollTop : void 0;
-                if ($64afbd09cd65a300$var$lastTarget !== target1) {
+            } else if (target.parentNode === el) {
+                targetRect = $64afbd09cd65a300$var$getRect(target);
+                var direction = 0, targetBeforeFirstSwap, differentLevel = $64afbd09cd65a300$var$dragEl.parentNode !== el, differentRowCol = !$64afbd09cd65a300$var$_dragElInRowColumn($64afbd09cd65a300$var$dragEl.animated && $64afbd09cd65a300$var$dragEl.toRect || dragRect, target.animated && target.toRect || targetRect, vertical), side1 = vertical ? "top" : "left", scrolledPastTop = $64afbd09cd65a300$var$isScrolledPast(target, "top", "top") || $64afbd09cd65a300$var$isScrolledPast($64afbd09cd65a300$var$dragEl, "top", "top"), scrollBefore = scrolledPastTop ? scrolledPastTop.scrollTop : void 0;
+                if ($64afbd09cd65a300$var$lastTarget !== target) {
                     targetBeforeFirstSwap = targetRect[side1];
                     $64afbd09cd65a300$var$pastFirstInvertThresh = false;
                     $64afbd09cd65a300$var$isCircumstantialInvert = !differentRowCol && options.invertSwap || differentLevel;
                 }
-                direction = $64afbd09cd65a300$var$_getSwapDirection(evt, target1, targetRect, vertical, differentRowCol ? 1 : options.swapThreshold, options.invertedSwapThreshold == null ? options.swapThreshold : options.invertedSwapThreshold, $64afbd09cd65a300$var$isCircumstantialInvert, $64afbd09cd65a300$var$lastTarget === target1);
+                direction = $64afbd09cd65a300$var$_getSwapDirection(evt, target, targetRect, vertical, differentRowCol ? 1 : options.swapThreshold, options.invertedSwapThreshold == null ? options.swapThreshold : options.invertedSwapThreshold, $64afbd09cd65a300$var$isCircumstantialInvert, $64afbd09cd65a300$var$lastTarget === target);
                 var sibling;
                 if (direction !== 0) {
                     // Check if target is beside dragEl in respective direction (ignoring hidden elements)
@@ -1339,26 +1396,27 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                     do {
                         dragIndex -= direction;
                         sibling = $64afbd09cd65a300$var$parentEl.children[dragIndex];
-                    }while (sibling && ($64afbd09cd65a300$var$css(sibling, 'display') === 'none' || sibling === $64afbd09cd65a300$var$ghostEl))
-                } // If dragEl is already beside target: Do not insert
-                if (direction === 0 || sibling === target1) return completed(false);
-                $64afbd09cd65a300$var$lastTarget = target1;
+                    }while (sibling && ($64afbd09cd65a300$var$css(sibling, "display") === "none" || sibling === $64afbd09cd65a300$var$ghostEl));
+                }
+                // If dragEl is already beside target: Do not insert
+                if (direction === 0 || sibling === target) return completed(false);
+                $64afbd09cd65a300$var$lastTarget = target;
                 $64afbd09cd65a300$var$lastDirection = direction;
-                var nextSibling = target1.nextElementSibling, after1 = false;
-                after1 = direction === 1;
-                var moveVector = $64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target1, targetRect, evt, after1);
+                var nextSibling = target.nextElementSibling, after = false;
+                after = direction === 1;
+                var moveVector = $64afbd09cd65a300$var$_onMove($64afbd09cd65a300$var$rootEl, el, $64afbd09cd65a300$var$dragEl, dragRect, target, targetRect, evt, after);
                 if (moveVector !== false) {
-                    if (moveVector === 1 || moveVector === -1) after1 = moveVector === 1;
+                    if (moveVector === 1 || moveVector === -1) after = moveVector === 1;
                     $64afbd09cd65a300$var$_silent = true;
                     setTimeout($64afbd09cd65a300$var$_unsilent, 30);
                     capture();
-                    if (after1 && !nextSibling) el.appendChild($64afbd09cd65a300$var$dragEl);
-                    else target1.parentNode.insertBefore($64afbd09cd65a300$var$dragEl, after1 ? nextSibling : target1);
-                     // Undo chrome's scroll adjustment (has no effect on other browsers)
+                    if (after && !nextSibling) el.appendChild($64afbd09cd65a300$var$dragEl);
+                    else target.parentNode.insertBefore($64afbd09cd65a300$var$dragEl, after ? nextSibling : target);
+                    // Undo chrome's scroll adjustment (has no effect on other browsers)
                     if (scrolledPastTop) $64afbd09cd65a300$var$scrollBy(scrolledPastTop, 0, scrollBefore - scrolledPastTop.scrollTop);
                     $64afbd09cd65a300$var$parentEl = $64afbd09cd65a300$var$dragEl.parentNode; // actualization
                     // must be done before animation
-                    if (targetBeforeFirstSwap !== undefined && !$64afbd09cd65a300$var$isCircumstantialInvert) $64afbd09cd65a300$var$targetMoveDistance = Math.abs(targetBeforeFirstSwap - $64afbd09cd65a300$var$getRect(target1)[side1]);
+                    if (targetBeforeFirstSwap !== undefined && !$64afbd09cd65a300$var$isCircumstantialInvert) $64afbd09cd65a300$var$targetMoveDistance = Math.abs(targetBeforeFirstSwap - $64afbd09cd65a300$var$getRect(target)[side1]);
                     changed();
                     return completed(true);
                 }
@@ -1369,29 +1427,31 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
     },
     _ignoreWhileAnimating: null,
     _offMoveEvents: function _offMoveEvents() {
-        $64afbd09cd65a300$var$off(document, 'mousemove', this._onTouchMove);
-        $64afbd09cd65a300$var$off(document, 'touchmove', this._onTouchMove);
-        $64afbd09cd65a300$var$off(document, 'pointermove', this._onTouchMove);
-        $64afbd09cd65a300$var$off(document, 'dragover', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
-        $64afbd09cd65a300$var$off(document, 'mousemove', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
-        $64afbd09cd65a300$var$off(document, 'touchmove', $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+        $64afbd09cd65a300$var$off(document, "mousemove", this._onTouchMove);
+        $64afbd09cd65a300$var$off(document, "touchmove", this._onTouchMove);
+        $64afbd09cd65a300$var$off(document, "pointermove", this._onTouchMove);
+        $64afbd09cd65a300$var$off(document, "dragover", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+        $64afbd09cd65a300$var$off(document, "mousemove", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
+        $64afbd09cd65a300$var$off(document, "touchmove", $64afbd09cd65a300$var$nearestEmptyInsertDetectEvent);
     },
     _offUpEvents: function _offUpEvents() {
         var ownerDocument = this.el.ownerDocument;
-        $64afbd09cd65a300$var$off(ownerDocument, 'mouseup', this._onDrop);
-        $64afbd09cd65a300$var$off(ownerDocument, 'touchend', this._onDrop);
-        $64afbd09cd65a300$var$off(ownerDocument, 'pointerup', this._onDrop);
-        $64afbd09cd65a300$var$off(ownerDocument, 'touchcancel', this._onDrop);
-        $64afbd09cd65a300$var$off(document, 'selectstart', this);
+        $64afbd09cd65a300$var$off(ownerDocument, "mouseup", this._onDrop);
+        $64afbd09cd65a300$var$off(ownerDocument, "touchend", this._onDrop);
+        $64afbd09cd65a300$var$off(ownerDocument, "pointerup", this._onDrop);
+        $64afbd09cd65a300$var$off(ownerDocument, "touchcancel", this._onDrop);
+        $64afbd09cd65a300$var$off(document, "selectstart", this);
     },
     _onDrop: function _onDrop(/**Event*/ evt) {
-        var el = this.el, options = this.options; // Get the index of the dragged element within its parent
+        var el = this.el, options = this.options;
+        // Get the index of the dragged element within its parent
         $64afbd09cd65a300$var$newIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl);
         $64afbd09cd65a300$var$newDraggableIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl, options.draggable);
-        $64afbd09cd65a300$var$pluginEvent('drop', this, {
+        $64afbd09cd65a300$var$pluginEvent("drop", this, {
             evt: evt
         });
-        $64afbd09cd65a300$var$parentEl = $64afbd09cd65a300$var$dragEl && $64afbd09cd65a300$var$dragEl.parentNode; // Get again after plugin event
+        $64afbd09cd65a300$var$parentEl = $64afbd09cd65a300$var$dragEl && $64afbd09cd65a300$var$dragEl.parentNode;
+        // Get again after plugin event
         $64afbd09cd65a300$var$newIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl);
         $64afbd09cd65a300$var$newDraggableIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl, options.draggable);
         if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) {
@@ -1404,33 +1464,36 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
         clearInterval(this._loopId);
         clearTimeout(this._dragStartTimer);
         $64afbd09cd65a300$var$_cancelNextTick(this.cloneId);
-        $64afbd09cd65a300$var$_cancelNextTick(this._dragStartId); // Unbind events
+        $64afbd09cd65a300$var$_cancelNextTick(this._dragStartId);
+        // Unbind events
         if (this.nativeDraggable) {
-            $64afbd09cd65a300$var$off(document, 'drop', this);
-            $64afbd09cd65a300$var$off(el, 'dragstart', this._onDragStart);
+            $64afbd09cd65a300$var$off(document, "drop", this);
+            $64afbd09cd65a300$var$off(el, "dragstart", this._onDragStart);
         }
         this._offMoveEvents();
         this._offUpEvents();
-        if ($64afbd09cd65a300$var$Safari) $64afbd09cd65a300$var$css(document.body, 'user-select', '');
-        $64afbd09cd65a300$var$css($64afbd09cd65a300$var$dragEl, 'transform', '');
+        if ($64afbd09cd65a300$var$Safari) $64afbd09cd65a300$var$css(document.body, "user-select", "");
+        $64afbd09cd65a300$var$css($64afbd09cd65a300$var$dragEl, "transform", "");
         if (evt) {
             if ($64afbd09cd65a300$var$moved) {
                 evt.cancelable && evt.preventDefault();
                 !options.dropBubble && evt.stopPropagation();
             }
             $64afbd09cd65a300$var$ghostEl && $64afbd09cd65a300$var$ghostEl.parentNode && $64afbd09cd65a300$var$ghostEl.parentNode.removeChild($64afbd09cd65a300$var$ghostEl);
-            if ($64afbd09cd65a300$var$rootEl === $64afbd09cd65a300$var$parentEl || $64afbd09cd65a300$var$putSortable && $64afbd09cd65a300$var$putSortable.lastPutMode !== 'clone') // Remove clone(s)
+            if ($64afbd09cd65a300$var$rootEl === $64afbd09cd65a300$var$parentEl || $64afbd09cd65a300$var$putSortable && $64afbd09cd65a300$var$putSortable.lastPutMode !== "clone") // Remove clone(s)
             $64afbd09cd65a300$var$cloneEl && $64afbd09cd65a300$var$cloneEl.parentNode && $64afbd09cd65a300$var$cloneEl.parentNode.removeChild($64afbd09cd65a300$var$cloneEl);
             if ($64afbd09cd65a300$var$dragEl) {
-                if (this.nativeDraggable) $64afbd09cd65a300$var$off($64afbd09cd65a300$var$dragEl, 'dragend', this);
+                if (this.nativeDraggable) $64afbd09cd65a300$var$off($64afbd09cd65a300$var$dragEl, "dragend", this);
                 $64afbd09cd65a300$var$_disableDraggable($64afbd09cd65a300$var$dragEl);
-                $64afbd09cd65a300$var$dragEl.style['will-change'] = ''; // Remove classes
+                $64afbd09cd65a300$var$dragEl.style["will-change"] = "";
+                // Remove classes
                 // ghostClass is added in dragStarted
                 if ($64afbd09cd65a300$var$moved && !$64afbd09cd65a300$var$awaitingDragStarted) $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, $64afbd09cd65a300$var$putSortable ? $64afbd09cd65a300$var$putSortable.options.ghostClass : this.options.ghostClass, false);
-                $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, this.options.chosenClass, false); // Drag stop event
+                $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl, this.options.chosenClass, false);
+                // Drag stop event
                 $64afbd09cd65a300$var$_dispatchEvent({
                     sortable: this,
-                    name: 'unchoose',
+                    name: "unchoose",
                     toEl: $64afbd09cd65a300$var$parentEl,
                     newIndex: null,
                     newDraggableIndex: null,
@@ -1441,27 +1504,29 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                         // Add event
                         $64afbd09cd65a300$var$_dispatchEvent({
                             rootEl: $64afbd09cd65a300$var$parentEl,
-                            name: 'add',
+                            name: "add",
                             toEl: $64afbd09cd65a300$var$parentEl,
                             fromEl: $64afbd09cd65a300$var$rootEl,
                             originalEvent: evt
-                        }); // Remove event
+                        });
+                        // Remove event
                         $64afbd09cd65a300$var$_dispatchEvent({
                             sortable: this,
-                            name: 'remove',
+                            name: "remove",
                             toEl: $64afbd09cd65a300$var$parentEl,
                             originalEvent: evt
-                        }); // drag from one list and drop into another
+                        });
+                        // drag from one list and drop into another
                         $64afbd09cd65a300$var$_dispatchEvent({
                             rootEl: $64afbd09cd65a300$var$parentEl,
-                            name: 'sort',
+                            name: "sort",
                             toEl: $64afbd09cd65a300$var$parentEl,
                             fromEl: $64afbd09cd65a300$var$rootEl,
                             originalEvent: evt
                         });
                         $64afbd09cd65a300$var$_dispatchEvent({
                             sortable: this,
-                            name: 'sort',
+                            name: "sort",
                             toEl: $64afbd09cd65a300$var$parentEl,
                             originalEvent: evt
                         });
@@ -1473,13 +1538,13 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                             // drag & drop within the same list
                             $64afbd09cd65a300$var$_dispatchEvent({
                                 sortable: this,
-                                name: 'update',
+                                name: "update",
                                 toEl: $64afbd09cd65a300$var$parentEl,
                                 originalEvent: evt
                             });
                             $64afbd09cd65a300$var$_dispatchEvent({
                                 sortable: this,
-                                name: 'sort',
+                                name: "sort",
                                 toEl: $64afbd09cd65a300$var$parentEl,
                                 originalEvent: evt
                             });
@@ -1493,10 +1558,11 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
                     }
                     $64afbd09cd65a300$var$_dispatchEvent({
                         sortable: this,
-                        name: 'end',
+                        name: "end",
                         toEl: $64afbd09cd65a300$var$parentEl,
                         originalEvent: evt
-                    }); // Save sorting
+                    });
+                    // Save sorting
                     this.save();
                 }
             }
@@ -1504,7 +1570,7 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
         this._nulling();
     },
     _nulling: function _nulling() {
-        $64afbd09cd65a300$var$pluginEvent('nulling', this);
+        $64afbd09cd65a300$var$pluginEvent("nulling", this);
         $64afbd09cd65a300$var$rootEl = $64afbd09cd65a300$var$dragEl = $64afbd09cd65a300$var$parentEl = $64afbd09cd65a300$var$ghostEl = $64afbd09cd65a300$var$nextEl = $64afbd09cd65a300$var$cloneEl = $64afbd09cd65a300$var$lastDownEl = $64afbd09cd65a300$var$cloneHidden = $64afbd09cd65a300$var$tapEvt = $64afbd09cd65a300$var$touchEvt = $64afbd09cd65a300$var$moved = $64afbd09cd65a300$var$newIndex = $64afbd09cd65a300$var$newDraggableIndex = $64afbd09cd65a300$var$oldIndex = $64afbd09cd65a300$var$oldDraggableIndex = $64afbd09cd65a300$var$lastTarget = $64afbd09cd65a300$var$lastDirection = $64afbd09cd65a300$var$putSortable = $64afbd09cd65a300$var$activeGroup = $64afbd09cd65a300$export$31b3ca70d8f57423.dragged = $64afbd09cd65a300$export$31b3ca70d8f57423.ghost = $64afbd09cd65a300$export$31b3ca70d8f57423.clone = $64afbd09cd65a300$export$31b3ca70d8f57423.active = null;
         $64afbd09cd65a300$var$savedInputChecked.forEach(function(el) {
             el.checked = true;
@@ -1513,18 +1579,18 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
     },
     handleEvent: function handleEvent(/**Event*/ evt) {
         switch(evt.type){
-            case 'drop':
-            case 'dragend':
+            case "drop":
+            case "dragend":
                 this._onDrop(evt);
                 break;
-            case 'dragenter':
-            case 'dragover':
+            case "dragenter":
+            case "dragover":
                 if ($64afbd09cd65a300$var$dragEl) {
                     this._onDragOver(evt);
                     $64afbd09cd65a300$var$_globalDragOver(evt);
                 }
                 break;
-            case 'selectstart':
+            case "selectstart":
                 evt.preventDefault();
                 break;
         }
@@ -1582,71 +1648,74 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.prototype = /** @lends Sortable.protot
         if (value === void 0) return options[name];
         else {
             var modifiedValue = $64afbd09cd65a300$var$PluginManager.modifyOption(this, name, value);
-            if (typeof modifiedValue !== 'undefined') options[name] = modifiedValue;
+            if (typeof modifiedValue !== "undefined") options[name] = modifiedValue;
             else options[name] = value;
-            if (name === 'group') $64afbd09cd65a300$var$_prepareGroup(options);
+            if (name === "group") $64afbd09cd65a300$var$_prepareGroup(options);
         }
     },
     /**
    * Destroy
    */ destroy: function destroy() {
-        $64afbd09cd65a300$var$pluginEvent('destroy', this);
-        var el1 = this.el;
-        el1[$64afbd09cd65a300$var$expando] = null;
-        $64afbd09cd65a300$var$off(el1, 'mousedown', this._onTapStart);
-        $64afbd09cd65a300$var$off(el1, 'touchstart', this._onTapStart);
-        $64afbd09cd65a300$var$off(el1, 'pointerdown', this._onTapStart);
+        $64afbd09cd65a300$var$pluginEvent("destroy", this);
+        var el = this.el;
+        el[$64afbd09cd65a300$var$expando] = null;
+        $64afbd09cd65a300$var$off(el, "mousedown", this._onTapStart);
+        $64afbd09cd65a300$var$off(el, "touchstart", this._onTapStart);
+        $64afbd09cd65a300$var$off(el, "pointerdown", this._onTapStart);
         if (this.nativeDraggable) {
-            $64afbd09cd65a300$var$off(el1, 'dragover', this);
-            $64afbd09cd65a300$var$off(el1, 'dragenter', this);
-        } // Remove draggable attributes
-        Array.prototype.forEach.call(el1.querySelectorAll('[draggable]'), function(el) {
-            el.removeAttribute('draggable');
+            $64afbd09cd65a300$var$off(el, "dragover", this);
+            $64afbd09cd65a300$var$off(el, "dragenter", this);
+        }
+        // Remove draggable attributes
+        Array.prototype.forEach.call(el.querySelectorAll("[draggable]"), function(el) {
+            el.removeAttribute("draggable");
         });
         this._onDrop();
         this._disableDelayedDragEvents();
         $64afbd09cd65a300$var$sortables.splice($64afbd09cd65a300$var$sortables.indexOf(this.el), 1);
-        this.el = el1 = null;
+        this.el = el = null;
     },
     _hideClone: function _hideClone() {
         if (!$64afbd09cd65a300$var$cloneHidden) {
-            $64afbd09cd65a300$var$pluginEvent('hideClone', this);
+            $64afbd09cd65a300$var$pluginEvent("hideClone", this);
             if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return;
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$cloneEl, 'display', 'none');
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$cloneEl, "display", "none");
             if (this.options.removeCloneOnHide && $64afbd09cd65a300$var$cloneEl.parentNode) $64afbd09cd65a300$var$cloneEl.parentNode.removeChild($64afbd09cd65a300$var$cloneEl);
             $64afbd09cd65a300$var$cloneHidden = true;
         }
     },
     _showClone: function _showClone(putSortable) {
-        if (putSortable.lastPutMode !== 'clone') {
+        if (putSortable.lastPutMode !== "clone") {
             this._hideClone();
             return;
         }
         if ($64afbd09cd65a300$var$cloneHidden) {
-            $64afbd09cd65a300$var$pluginEvent('showClone', this);
-            if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return; // show clone at dragEl or original position
+            $64afbd09cd65a300$var$pluginEvent("showClone", this);
+            if ($64afbd09cd65a300$export$31b3ca70d8f57423.eventCanceled) return;
+            // show clone at dragEl or original position
             if ($64afbd09cd65a300$var$dragEl.parentNode == $64afbd09cd65a300$var$rootEl && !this.options.group.revertClone) $64afbd09cd65a300$var$rootEl.insertBefore($64afbd09cd65a300$var$cloneEl, $64afbd09cd65a300$var$dragEl);
             else if ($64afbd09cd65a300$var$nextEl) $64afbd09cd65a300$var$rootEl.insertBefore($64afbd09cd65a300$var$cloneEl, $64afbd09cd65a300$var$nextEl);
             else $64afbd09cd65a300$var$rootEl.appendChild($64afbd09cd65a300$var$cloneEl);
             if (this.options.group.revertClone) this.animate($64afbd09cd65a300$var$dragEl, $64afbd09cd65a300$var$cloneEl);
-            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$cloneEl, 'display', '');
+            $64afbd09cd65a300$var$css($64afbd09cd65a300$var$cloneEl, "display", "");
             $64afbd09cd65a300$var$cloneHidden = false;
         }
     }
 };
 function $64afbd09cd65a300$var$_globalDragOver(/**Event*/ evt) {
-    if (evt.dataTransfer) evt.dataTransfer.dropEffect = 'move';
+    if (evt.dataTransfer) evt.dataTransfer.dropEffect = "move";
     evt.cancelable && evt.preventDefault();
 }
 function $64afbd09cd65a300$var$_onMove(fromEl, toEl, dragEl, dragRect, targetEl, targetRect, originalEvent, willInsertAfter) {
-    var evt, sortable = fromEl[$64afbd09cd65a300$var$expando], onMoveFn = sortable.options.onMove, retVal; // Support for new CustomEvent feature
-    if (window.CustomEvent && !$64afbd09cd65a300$var$IE11OrLess && !$64afbd09cd65a300$var$Edge) evt = new CustomEvent('move', {
+    var evt, sortable = fromEl[$64afbd09cd65a300$var$expando], onMoveFn = sortable.options.onMove, retVal;
+    // Support for new CustomEvent feature
+    if (window.CustomEvent && !$64afbd09cd65a300$var$IE11OrLess && !$64afbd09cd65a300$var$Edge) evt = new CustomEvent("move", {
         bubbles: true,
         cancelable: true
     });
     else {
-        evt = document.createEvent('Event');
-        evt.initEvent('move', true, true);
+        evt = document.createEvent("Event");
+        evt.initEvent("move", true, true);
     }
     evt.to = toEl;
     evt.from = fromEl;
@@ -1667,14 +1736,16 @@ function $64afbd09cd65a300$var$_unsilent() {
     $64afbd09cd65a300$var$_silent = false;
 }
 function $64afbd09cd65a300$var$_ghostIsFirst(evt, vertical, sortable) {
-    var rect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$getChild(sortable.el, 0, sortable.options, true));
+    var firstElRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$getChild(sortable.el, 0, sortable.options, true));
+    var childContainingRect = $64afbd09cd65a300$var$getChildContainingRectFromElement(sortable.el, sortable.options, $64afbd09cd65a300$var$ghostEl);
     var spacer = 10;
-    return vertical ? evt.clientX < rect.left - spacer || evt.clientY < rect.top && evt.clientX < rect.right : evt.clientY < rect.top - spacer || evt.clientY < rect.bottom && evt.clientX < rect.left;
+    return vertical ? evt.clientX < childContainingRect.left - spacer || evt.clientY < firstElRect.top && evt.clientX < firstElRect.right : evt.clientY < childContainingRect.top - spacer || evt.clientY < firstElRect.bottom && evt.clientX < firstElRect.left;
 }
 function $64afbd09cd65a300$var$_ghostIsLast(evt, vertical, sortable) {
-    var rect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$lastChild(sortable.el, sortable.options.draggable));
+    var lastElRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$lastChild(sortable.el, sortable.options.draggable));
+    var childContainingRect = $64afbd09cd65a300$var$getChildContainingRectFromElement(sortable.el, sortable.options, $64afbd09cd65a300$var$ghostEl);
     var spacer = 10;
-    return vertical ? evt.clientX > rect.right + spacer || evt.clientX <= rect.right && evt.clientY > rect.bottom && evt.clientX >= rect.left : evt.clientX > rect.right && evt.clientY > rect.top || evt.clientX <= rect.right && evt.clientY > rect.bottom + spacer;
+    return vertical ? evt.clientX > childContainingRect.right + spacer || evt.clientY > lastElRect.bottom && evt.clientX > lastElRect.left : evt.clientY > childContainingRect.bottom + spacer || evt.clientX > lastElRect.right && evt.clientY > lastElRect.top;
 }
 function $64afbd09cd65a300$var$_getSwapDirection(evt, target, targetRect, vertical, swapThreshold, invertedSwapThreshold, invertSwap, isLastTarget) {
     var mouseOnAxis = vertical ? evt.clientY : evt.clientX, targetLength = vertical ? targetRect.height : targetRect.width, targetS1 = vertical ? targetRect.top : targetRect.left, targetS2 = vertical ? targetRect.bottom : targetRect.right, invert = false;
@@ -1723,7 +1794,7 @@ function $64afbd09cd65a300$var$_getSwapDirection(evt, target, targetRect, vertic
 }
 function $64afbd09cd65a300$var$_saveInputCheckedState(root) {
     $64afbd09cd65a300$var$savedInputChecked.length = 0;
-    var inputs = root.getElementsByTagName('input');
+    var inputs = root.getElementsByTagName("input");
     var idx = inputs.length;
     while(idx--){
         var el = inputs[idx];
@@ -1735,11 +1806,12 @@ function $64afbd09cd65a300$var$_nextTick(fn) {
 }
 function $64afbd09cd65a300$var$_cancelNextTick(id) {
     return clearTimeout(id);
-} // Fixed #973:
-if ($64afbd09cd65a300$var$documentExists) $64afbd09cd65a300$var$on(document, 'touchmove', function(evt) {
+}
+// Fixed #973:
+if ($64afbd09cd65a300$var$documentExists) $64afbd09cd65a300$var$on(document, "touchmove", function(evt) {
     if (($64afbd09cd65a300$export$31b3ca70d8f57423.active || $64afbd09cd65a300$var$awaitingDragStarted) && evt.cancelable) evt.preventDefault();
 });
- // Export utils
+// Export utils
 $64afbd09cd65a300$export$31b3ca70d8f57423.utils = {
     on: $64afbd09cd65a300$var$on,
     off: $64afbd09cd65a300$var$off,
@@ -1784,7 +1856,8 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.utils = {
  * @param {Object}      [options]
  */ $64afbd09cd65a300$export$31b3ca70d8f57423.create = function(el, options) {
     return new $64afbd09cd65a300$export$31b3ca70d8f57423(el, options);
-}; // Export
+};
+// Export
 $64afbd09cd65a300$export$31b3ca70d8f57423.version = $64afbd09cd65a300$var$version;
 var $64afbd09cd65a300$var$autoScrolls = [], $64afbd09cd65a300$var$scrollEl, $64afbd09cd65a300$var$scrollRootEl, $64afbd09cd65a300$var$scrolling = false, $64afbd09cd65a300$var$lastAutoScrollX, $64afbd09cd65a300$var$lastAutoScrollY, $64afbd09cd65a300$var$touchEvt$1, $64afbd09cd65a300$var$pointerElemChangedInterval;
 function $64afbd09cd65a300$var$AutoScrollPlugin() {
@@ -1795,17 +1868,18 @@ function $64afbd09cd65a300$var$AutoScrollPlugin() {
             scrollSensitivity: 30,
             scrollSpeed: 10,
             bubbleScroll: true
-        }; // Bind all private methods
-        for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
+        };
+        // Bind all private methods
+        for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
     }
     AutoScroll.prototype = {
         dragStarted: function dragStarted(_ref) {
             var originalEvent = _ref.originalEvent;
-            if (this.sortable.nativeDraggable) $64afbd09cd65a300$var$on(document, 'dragover', this._handleAutoScroll);
+            if (this.sortable.nativeDraggable) $64afbd09cd65a300$var$on(document, "dragover", this._handleAutoScroll);
             else {
-                if (this.options.supportPointer) $64afbd09cd65a300$var$on(document, 'pointermove', this._handleFallbackAutoScroll);
-                else if (originalEvent.touches) $64afbd09cd65a300$var$on(document, 'touchmove', this._handleFallbackAutoScroll);
-                else $64afbd09cd65a300$var$on(document, 'mousemove', this._handleFallbackAutoScroll);
+                if (this.options.supportPointer) $64afbd09cd65a300$var$on(document, "pointermove", this._handleFallbackAutoScroll);
+                else if (originalEvent.touches) $64afbd09cd65a300$var$on(document, "touchmove", this._handleFallbackAutoScroll);
+                else $64afbd09cd65a300$var$on(document, "mousemove", this._handleFallbackAutoScroll);
             }
         },
         dragOverCompleted: function dragOverCompleted(_ref2) {
@@ -1814,11 +1888,11 @@ function $64afbd09cd65a300$var$AutoScrollPlugin() {
             if (!this.options.dragOverBubble && !originalEvent.rootEl) this._handleAutoScroll(originalEvent);
         },
         drop: function drop() {
-            if (this.sortable.nativeDraggable) $64afbd09cd65a300$var$off(document, 'dragover', this._handleAutoScroll);
+            if (this.sortable.nativeDraggable) $64afbd09cd65a300$var$off(document, "dragover", this._handleAutoScroll);
             else {
-                $64afbd09cd65a300$var$off(document, 'pointermove', this._handleFallbackAutoScroll);
-                $64afbd09cd65a300$var$off(document, 'touchmove', this._handleFallbackAutoScroll);
-                $64afbd09cd65a300$var$off(document, 'mousemove', this._handleFallbackAutoScroll);
+                $64afbd09cd65a300$var$off(document, "pointermove", this._handleFallbackAutoScroll);
+                $64afbd09cd65a300$var$off(document, "touchmove", this._handleFallbackAutoScroll);
+                $64afbd09cd65a300$var$off(document, "mousemove", this._handleFallbackAutoScroll);
             }
             $64afbd09cd65a300$var$clearPointerElemChangedInterval();
             $64afbd09cd65a300$var$clearAutoScrolls();
@@ -1834,15 +1908,18 @@ function $64afbd09cd65a300$var$AutoScrollPlugin() {
         _handleAutoScroll: function _handleAutoScroll(evt, fallback) {
             var _this = this;
             var x = (evt.touches ? evt.touches[0] : evt).clientX, y = (evt.touches ? evt.touches[0] : evt).clientY, elem = document.elementFromPoint(x, y);
-            $64afbd09cd65a300$var$touchEvt$1 = evt; // IE does not seem to have native autoscroll,
+            $64afbd09cd65a300$var$touchEvt$1 = evt;
+            // IE does not seem to have native autoscroll,
             // Edge's autoscroll seems too conditional,
             // MACOS Safari does not have autoscroll,
             // Firefox and Chrome are good
             if (fallback || this.options.forceAutoScrollFallback || $64afbd09cd65a300$var$Edge || $64afbd09cd65a300$var$IE11OrLess || $64afbd09cd65a300$var$Safari) {
-                $64afbd09cd65a300$var$autoScroll(evt, this.options, elem, fallback); // Listener for pointer element change
+                $64afbd09cd65a300$var$autoScroll(evt, this.options, elem, fallback);
+                // Listener for pointer element change
                 var ogElemScroller = $64afbd09cd65a300$var$getParentAutoScrollElement(elem, true);
                 if ($64afbd09cd65a300$var$scrolling && (!$64afbd09cd65a300$var$pointerElemChangedInterval || x !== $64afbd09cd65a300$var$lastAutoScrollX || y !== $64afbd09cd65a300$var$lastAutoScrollY)) {
-                    $64afbd09cd65a300$var$pointerElemChangedInterval && $64afbd09cd65a300$var$clearPointerElemChangedInterval(); // Detect for pointer elem change, emulating native DnD behaviour
+                    $64afbd09cd65a300$var$pointerElemChangedInterval && $64afbd09cd65a300$var$clearPointerElemChangedInterval();
+                    // Detect for pointer elem change, emulating native DnD behaviour
                     $64afbd09cd65a300$var$pointerElemChangedInterval = setInterval(function() {
                         var newElem = $64afbd09cd65a300$var$getParentAutoScrollElement(document.elementFromPoint(x, y), true);
                         if (newElem !== ogElemScroller) {
@@ -1865,7 +1942,7 @@ function $64afbd09cd65a300$var$AutoScrollPlugin() {
         }
     };
     return $64afbd09cd65a300$var$_extends(AutoScroll, {
-        pluginName: 'scroll',
+        pluginName: "scroll",
         initializeByDefault: true
     });
 }
@@ -1882,7 +1959,8 @@ var $64afbd09cd65a300$var$autoScroll = $64afbd09cd65a300$var$throttle(function(e
     // Bug: https://bugzilla.mozilla.org/show_bug.cgi?id=505521
     if (!options.scroll) return;
     var x = (evt.touches ? evt.touches[0] : evt).clientX, y = (evt.touches ? evt.touches[0] : evt).clientY, sens = options.scrollSensitivity, speed = options.scrollSpeed, winScroller = $64afbd09cd65a300$var$getWindowScrollingElement();
-    var scrollThisInstance = false, scrollCustomFn; // New scroll root, set scrollEl
+    var scrollThisInstance = false, scrollCustomFn;
+    // New scroll root, set scrollEl
     if ($64afbd09cd65a300$var$scrollRootEl !== rootEl) {
         $64afbd09cd65a300$var$scrollRootEl = rootEl;
         $64afbd09cd65a300$var$clearAutoScrolls();
@@ -1895,11 +1973,11 @@ var $64afbd09cd65a300$var$autoScroll = $64afbd09cd65a300$var$throttle(function(e
     do {
         var el = currentParent, rect = $64afbd09cd65a300$var$getRect(el), top = rect.top, bottom = rect.bottom, left = rect.left, right = rect.right, width = rect.width, height = rect.height, canScrollX = void 0, canScrollY = void 0, scrollWidth = el.scrollWidth, scrollHeight = el.scrollHeight, elCSS = $64afbd09cd65a300$var$css(el), scrollPosX = el.scrollLeft, scrollPosY = el.scrollTop;
         if (el === winScroller) {
-            canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll' || elCSS.overflowX === 'visible');
-            canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll' || elCSS.overflowY === 'visible');
+            canScrollX = width < scrollWidth && (elCSS.overflowX === "auto" || elCSS.overflowX === "scroll" || elCSS.overflowX === "visible");
+            canScrollY = height < scrollHeight && (elCSS.overflowY === "auto" || elCSS.overflowY === "scroll" || elCSS.overflowY === "visible");
         } else {
-            canScrollX = width < scrollWidth && (elCSS.overflowX === 'auto' || elCSS.overflowX === 'scroll');
-            canScrollY = height < scrollHeight && (elCSS.overflowY === 'auto' || elCSS.overflowY === 'scroll');
+            canScrollX = width < scrollWidth && (elCSS.overflowX === "auto" || elCSS.overflowX === "scroll");
+            canScrollY = height < scrollHeight && (elCSS.overflowY === "auto" || elCSS.overflowY === "scroll");
         }
         var vx = canScrollX && (Math.abs(right - x) <= sens && scrollPosX + width < scrollWidth) - (Math.abs(left - x) <= sens && !!scrollPosX);
         var vy = canScrollY && (Math.abs(bottom - y) <= sens && scrollPosY + height < scrollHeight) - (Math.abs(top - y) <= sens && !!scrollPosY);
@@ -1918,8 +1996,8 @@ var $64afbd09cd65a300$var$autoScroll = $64afbd09cd65a300$var$throttle(function(e
                     if (isFallback && this.layer === 0) $64afbd09cd65a300$export$31b3ca70d8f57423.active._onTouchMove($64afbd09cd65a300$var$touchEvt$1); // To move ghost if it is positioned absolutely
                     var scrollOffsetY = $64afbd09cd65a300$var$autoScrolls[this.layer].vy ? $64afbd09cd65a300$var$autoScrolls[this.layer].vy * speed : 0;
                     var scrollOffsetX = $64afbd09cd65a300$var$autoScrolls[this.layer].vx ? $64afbd09cd65a300$var$autoScrolls[this.layer].vx * speed : 0;
-                    if (typeof scrollCustomFn === 'function') {
-                        if (scrollCustomFn.call($64afbd09cd65a300$export$31b3ca70d8f57423.dragged.parentNode[$64afbd09cd65a300$var$expando], scrollOffsetX, scrollOffsetY, evt, $64afbd09cd65a300$var$touchEvt$1, $64afbd09cd65a300$var$autoScrolls[this.layer].el) !== 'continue') return;
+                    if (typeof scrollCustomFn === "function") {
+                        if (scrollCustomFn.call($64afbd09cd65a300$export$31b3ca70d8f57423.dragged.parentNode[$64afbd09cd65a300$var$expando], scrollOffsetX, scrollOffsetY, evt, $64afbd09cd65a300$var$touchEvt$1, $64afbd09cd65a300$var$autoScrolls[this.layer].el) !== "continue") return;
                     }
                     $64afbd09cd65a300$var$scrollBy($64afbd09cd65a300$var$autoScrolls[this.layer].el, scrollOffsetX, scrollOffsetY);
                 }).bind({
@@ -1928,7 +2006,7 @@ var $64afbd09cd65a300$var$autoScroll = $64afbd09cd65a300$var$throttle(function(e
             }
         }
         layersOut++;
-    }while (options.bubbleScroll && currentParent !== winScroller && (currentParent = $64afbd09cd65a300$var$getParentAutoScrollElement(currentParent, false)))
+    }while (options.bubbleScroll && currentParent !== winScroller && (currentParent = $64afbd09cd65a300$var$getParentAutoScrollElement(currentParent, false)));
     $64afbd09cd65a300$var$scrolling = scrollThisInstance; // in case another function catches scrolling as false in between when it is not
 }, 30);
 var $64afbd09cd65a300$var$drop = function drop(_ref) {
@@ -1940,7 +2018,7 @@ var $64afbd09cd65a300$var$drop = function drop(_ref) {
     var target = document.elementFromPoint(touch.clientX, touch.clientY);
     unhideGhostForTarget();
     if (toSortable && !toSortable.el.contains(target)) {
-        dispatchSortableEvent('spill');
+        dispatchSortableEvent("spill");
         this.onSpill({
             dragEl: dragEl,
             putSortable: putSortable
@@ -1967,7 +2045,7 @@ $64afbd09cd65a300$var$Revert.prototype = {
     drop: $64afbd09cd65a300$var$drop
 };
 $64afbd09cd65a300$var$_extends($64afbd09cd65a300$var$Revert, {
-    pluginName: 'revertOnSpill'
+    pluginName: "revertOnSpill"
 });
 function $64afbd09cd65a300$var$Remove() {}
 $64afbd09cd65a300$var$Remove.prototype = {
@@ -1981,13 +2059,13 @@ $64afbd09cd65a300$var$Remove.prototype = {
     drop: $64afbd09cd65a300$var$drop
 };
 $64afbd09cd65a300$var$_extends($64afbd09cd65a300$var$Remove, {
-    pluginName: 'removeOnSpill'
+    pluginName: "removeOnSpill"
 });
 var $64afbd09cd65a300$var$lastSwapEl;
 function $64afbd09cd65a300$export$bdb5f0a1b77546f4() {
     function Swap() {
         this.defaults = {
-            swapClass: 'sortable-swap-highlight'
+            swapClass: "sortable-swap-highlight"
         };
     }
     Swap.prototype = {
@@ -2031,7 +2109,7 @@ function $64afbd09cd65a300$export$bdb5f0a1b77546f4() {
         }
     };
     return $64afbd09cd65a300$var$_extends(Swap, {
-        pluginName: 'swap',
+        pluginName: "swap",
         eventProperties: function eventProperties() {
             return {
                 swapItem: $64afbd09cd65a300$var$lastSwapEl
@@ -2055,27 +2133,27 @@ $64afbd09cd65a300$var$dragStarted = false, $64afbd09cd65a300$var$dragEl$1, $64af
 function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
     function MultiDrag(sortable) {
         // Bind all private methods
-        for(var fn in this)if (fn.charAt(0) === '_' && typeof this[fn] === 'function') this[fn] = this[fn].bind(this);
+        for(var fn in this)if (fn.charAt(0) === "_" && typeof this[fn] === "function") this[fn] = this[fn].bind(this);
         if (!sortable.options.avoidImplicitDeselect) {
-            if (sortable.options.supportPointer) $64afbd09cd65a300$var$on(document, 'pointerup', this._deselectMultiDrag);
+            if (sortable.options.supportPointer) $64afbd09cd65a300$var$on(document, "pointerup", this._deselectMultiDrag);
             else {
-                $64afbd09cd65a300$var$on(document, 'mouseup', this._deselectMultiDrag);
-                $64afbd09cd65a300$var$on(document, 'touchend', this._deselectMultiDrag);
+                $64afbd09cd65a300$var$on(document, "mouseup", this._deselectMultiDrag);
+                $64afbd09cd65a300$var$on(document, "touchend", this._deselectMultiDrag);
             }
         }
-        $64afbd09cd65a300$var$on(document, 'keydown', this._checkKeyDown);
-        $64afbd09cd65a300$var$on(document, 'keyup', this._checkKeyUp);
+        $64afbd09cd65a300$var$on(document, "keydown", this._checkKeyDown);
+        $64afbd09cd65a300$var$on(document, "keyup", this._checkKeyUp);
         this.defaults = {
-            selectedClass: 'sortable-selected',
+            selectedClass: "sortable-selected",
             multiDragKey: null,
             avoidImplicitDeselect: false,
             setData: function setData(dataTransfer, dragEl) {
-                var data = '';
+                var data = "";
                 if ($64afbd09cd65a300$var$multiDragElements.length && $64afbd09cd65a300$var$multiDragSortable === sortable) $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement, i) {
-                    data += (!i ? '' : ', ') + multiDragElement.textContent;
+                    data += (!i ? "" : ", ") + multiDragElement.textContent;
                 });
                 else data = dragEl.textContent;
-                dataTransfer.setData('Text', data);
+                dataTransfer.setData("Text", data);
             }
         };
     }
@@ -2096,7 +2174,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                 $64afbd09cd65a300$var$multiDragClones.push($64afbd09cd65a300$var$clone($64afbd09cd65a300$var$multiDragElements[i]));
                 $64afbd09cd65a300$var$multiDragClones[i].sortableIndex = $64afbd09cd65a300$var$multiDragElements[i].sortableIndex;
                 $64afbd09cd65a300$var$multiDragClones[i].draggable = false;
-                $64afbd09cd65a300$var$multiDragClones[i].style['will-change'] = '';
+                $64afbd09cd65a300$var$multiDragClones[i].style["will-change"] = "";
                 $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$multiDragClones[i], this.options.selectedClass, false);
                 $64afbd09cd65a300$var$multiDragElements[i] === $64afbd09cd65a300$var$dragEl$1 && $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$multiDragClones[i], this.options.chosenClass, false);
             }
@@ -2109,7 +2187,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             if (!this.options.removeCloneOnHide) {
                 if ($64afbd09cd65a300$var$multiDragElements.length && $64afbd09cd65a300$var$multiDragSortable === sortable) {
                     $64afbd09cd65a300$var$insertMultiDragClones(true, rootEl);
-                    dispatchSortableEvent('clone');
+                    dispatchSortableEvent("clone");
                     cancel();
                 }
             }
@@ -2119,7 +2197,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             if (!this.isMultiDrag) return;
             $64afbd09cd65a300$var$insertMultiDragClones(false, rootEl);
             $64afbd09cd65a300$var$multiDragClones.forEach(function(clone) {
-                $64afbd09cd65a300$var$css(clone, 'display', '');
+                $64afbd09cd65a300$var$css(clone, "display", "");
             });
             cloneNowShown();
             $64afbd09cd65a300$var$clonesHidden = false;
@@ -2130,7 +2208,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             var sortable = _ref5.sortable, cloneNowHidden = _ref5.cloneNowHidden, cancel = _ref5.cancel;
             if (!this.isMultiDrag) return;
             $64afbd09cd65a300$var$multiDragClones.forEach(function(clone) {
-                $64afbd09cd65a300$var$css(clone, 'display', 'none');
+                $64afbd09cd65a300$var$css(clone, "display", "none");
                 if (_this.options.removeCloneOnHide && clone.parentNode) clone.parentNode.removeChild(clone);
             });
             cloneNowHidden();
@@ -2142,7 +2220,8 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             if (!this.isMultiDrag && $64afbd09cd65a300$var$multiDragSortable) $64afbd09cd65a300$var$multiDragSortable.multiDrag._deselectMultiDrag();
             $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                 multiDragElement.sortableIndex = $64afbd09cd65a300$var$index(multiDragElement);
-            }); // Sort multi-drag elements
+            });
+            // Sort multi-drag elements
             $64afbd09cd65a300$var$multiDragElements = $64afbd09cd65a300$var$multiDragElements.sort(function(a, b) {
                 return a.sortableIndex - b.sortableIndex;
             });
@@ -2163,7 +2242,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                 if (this.options.animation) {
                     $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                         if (multiDragElement === $64afbd09cd65a300$var$dragEl$1) return;
-                        $64afbd09cd65a300$var$css(multiDragElement, 'position', 'absolute');
+                        $64afbd09cd65a300$var$css(multiDragElement, "position", "absolute");
                     });
                     var dragRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl$1, false, true, true);
                     $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
@@ -2180,7 +2259,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                 if (_this2.options.animation) $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                     $64afbd09cd65a300$var$unsetRect(multiDragElement);
                 });
-                 // Remove all auxiliary multidrag items from el, if sorting enabled
+                // Remove all auxiliary multidrag items from el, if sorting enabled
                 if (_this2.options.sort) $64afbd09cd65a300$var$removeMultiDragElements();
             });
         },
@@ -2214,24 +2293,28 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             if (insertion) {
                 // Clones must be hidden before folding animation to capture dragRectAbsolute properly
                 if (isOwner) activeSortable._hideClone();
-                $64afbd09cd65a300$var$initialFolding = false; // If leaving sort:false root, or already folding - Fold to new location
+                $64afbd09cd65a300$var$initialFolding = false;
+                // If leaving sort:false root, or already folding - Fold to new location
                 if (options.animation && $64afbd09cd65a300$var$multiDragElements.length > 1 && ($64afbd09cd65a300$var$folding || !isOwner && !activeSortable.options.sort && !putSortable)) {
                     // Fold: Set all multi drag elements's rects to dragEl's rect when multi-drag elements are invisible
                     var dragRectAbsolute = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl$1, false, true, true);
                     $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                         if (multiDragElement === $64afbd09cd65a300$var$dragEl$1) return;
-                        $64afbd09cd65a300$var$setRect(multiDragElement, dragRectAbsolute); // Move element(s) to end of parentEl so that it does not interfere with multi-drag clones insertion if they are inserted
+                        $64afbd09cd65a300$var$setRect(multiDragElement, dragRectAbsolute);
+                        // Move element(s) to end of parentEl so that it does not interfere with multi-drag clones insertion if they are inserted
                         // while folding, and so that we can capture them again because old sortable will no longer be fromSortable
                         parentEl.appendChild(multiDragElement);
                     });
                     $64afbd09cd65a300$var$folding = true;
-                } // Clones must be shown (and check to remove multi drags) after folding when interfering multiDragElements are moved out
+                }
+                // Clones must be shown (and check to remove multi drags) after folding when interfering multiDragElements are moved out
                 if (!isOwner) {
                     // Only remove if not folding (folding will remove them anyways)
                     if (!$64afbd09cd65a300$var$folding) $64afbd09cd65a300$var$removeMultiDragElements();
                     if ($64afbd09cd65a300$var$multiDragElements.length > 1) {
                         var clonesHiddenBefore = $64afbd09cd65a300$var$clonesHidden;
-                        activeSortable._showClone(sortable); // Unfold animation for clones if showing from hidden
+                        activeSortable._showClone(sortable);
+                        // Unfold animation for clones if showing from hidden
                         if (activeSortable.options.animation && !$64afbd09cd65a300$var$clonesHidden && clonesHiddenBefore) $64afbd09cd65a300$var$multiDragClones.forEach(function(clone) {
                             activeSortable.addAnimationState({
                                 target: clone,
@@ -2266,7 +2349,8 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
             var evt = _ref12.originalEvent, rootEl = _ref12.rootEl, parentEl = _ref12.parentEl, sortable = _ref12.sortable, dispatchSortableEvent = _ref12.dispatchSortableEvent, oldIndex = _ref12.oldIndex, putSortable = _ref12.putSortable;
             var toSortable = putSortable || this.sortable;
             if (!evt) return;
-            var options = this.options, children = parentEl.children; // Multi-drag selection
+            var options = this.options, children = parentEl.children;
+            // Multi-drag selection
             if (!$64afbd09cd65a300$var$dragStarted) {
                 if (options.multiDragKey && !this.multiDragKeyDown) this._deselectMultiDrag();
                 $64afbd09cd65a300$var$toggleClass($64afbd09cd65a300$var$dragEl$1, options.selectedClass, !~$64afbd09cd65a300$var$multiDragElements.indexOf($64afbd09cd65a300$var$dragEl$1));
@@ -2275,10 +2359,11 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                     $64afbd09cd65a300$var$dispatchEvent({
                         sortable: sortable,
                         rootEl: rootEl,
-                        name: 'select',
+                        name: "select",
                         targetEl: $64afbd09cd65a300$var$dragEl$1,
                         originalEvent: evt
-                    }); // Modifier activated, select from last to dragEl
+                    });
+                    // Modifier activated, select from last to dragEl
                     if (evt.shiftKey && $64afbd09cd65a300$var$lastMultiDragSelect && sortable.el.contains($64afbd09cd65a300$var$lastMultiDragSelect)) {
                         var lastIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$lastMultiDragSelect), currentIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl$1);
                         if (~lastIndex && ~currentIndex && lastIndex !== currentIndex) {
@@ -2299,7 +2384,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                                 $64afbd09cd65a300$var$dispatchEvent({
                                     sortable: sortable,
                                     rootEl: rootEl,
-                                    name: 'select',
+                                    name: "select",
                                     targetEl: children[i],
                                     originalEvent: evt
                                 });
@@ -2313,16 +2398,18 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                     $64afbd09cd65a300$var$dispatchEvent({
                         sortable: sortable,
                         rootEl: rootEl,
-                        name: 'deselect',
+                        name: "deselect",
                         targetEl: $64afbd09cd65a300$var$dragEl$1,
                         originalEvent: evt
                     });
                 }
-            } // Multi-drag drop
+            }
+            // Multi-drag drop
             if ($64afbd09cd65a300$var$dragStarted && this.isMultiDrag) {
-                $64afbd09cd65a300$var$folding = false; // Do not "unfold" after around dragEl if reverted
+                $64afbd09cd65a300$var$folding = false;
+                // Do not "unfold" after around dragEl if reverted
                 if ((parentEl[$64afbd09cd65a300$var$expando].options.sort || parentEl !== rootEl) && $64afbd09cd65a300$var$multiDragElements.length > 1) {
-                    var dragRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl$1), multiDragIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl$1, ':not(.' + this.options.selectedClass + ')');
+                    var dragRect = $64afbd09cd65a300$var$getRect($64afbd09cd65a300$var$dragEl$1), multiDragIndex = $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl$1, ":not(." + this.options.selectedClass + ")");
                     if (!$64afbd09cd65a300$var$initialFolding && options.animation) $64afbd09cd65a300$var$dragEl$1.thisAnimationDuration = null;
                     toSortable.captureAnimationState();
                     if (!$64afbd09cd65a300$var$initialFolding) {
@@ -2332,21 +2419,24 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                                 multiDragElement.thisAnimationDuration = null;
                                 if (multiDragElement !== $64afbd09cd65a300$var$dragEl$1) {
                                     var rect = $64afbd09cd65a300$var$folding ? $64afbd09cd65a300$var$getRect(multiDragElement) : dragRect;
-                                    multiDragElement.fromRect = rect; // Prepare unfold animation
+                                    multiDragElement.fromRect = rect;
+                                    // Prepare unfold animation
                                     toSortable.addAnimationState({
                                         target: multiDragElement,
                                         rect: rect
                                     });
                                 }
                             });
-                        } // Multi drag elements are not necessarily removed from the DOM on drop, so to reinsert
+                        }
+                        // Multi drag elements are not necessarily removed from the DOM on drop, so to reinsert
                         // properly they must all be removed
                         $64afbd09cd65a300$var$removeMultiDragElements();
                         $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                             if (children[multiDragIndex]) parentEl.insertBefore(multiDragElement, children[multiDragIndex]);
                             else parentEl.appendChild(multiDragElement);
                             multiDragIndex++;
-                        }); // If initial folding is done, the elements may have changed position because they are now
+                        });
+                        // If initial folding is done, the elements may have changed position because they are now
                         // unfolding around dragEl, even though dragEl may not have his index changed, so update event
                         // must be fired here as Sortable will not.
                         if (oldIndex === $64afbd09cd65a300$var$index($64afbd09cd65a300$var$dragEl$1)) {
@@ -2357,17 +2447,22 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                                     return;
                                 }
                             });
-                            if (update) dispatchSortableEvent('update');
+                            if (update) {
+                                dispatchSortableEvent("update");
+                                dispatchSortableEvent("sort");
+                            }
                         }
-                    } // Must be done after capturing individual rects (scroll bar)
+                    }
+                    // Must be done after capturing individual rects (scroll bar)
                     $64afbd09cd65a300$var$multiDragElements.forEach(function(multiDragElement) {
                         $64afbd09cd65a300$var$unsetRect(multiDragElement);
                     });
                     toSortable.animateAll();
                 }
                 $64afbd09cd65a300$var$multiDragSortable = toSortable;
-            } // Remove clones if necessary
-            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== 'clone') $64afbd09cd65a300$var$multiDragClones.forEach(function(clone) {
+            }
+            // Remove clones if necessary
+            if (rootEl === parentEl || putSortable && putSortable.lastPutMode !== "clone") $64afbd09cd65a300$var$multiDragClones.forEach(function(clone) {
                 clone.parentNode && clone.parentNode.removeChild(clone);
             });
         },
@@ -2377,16 +2472,19 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
         },
         destroyGlobal: function destroyGlobal() {
             this._deselectMultiDrag();
-            $64afbd09cd65a300$var$off(document, 'pointerup', this._deselectMultiDrag);
-            $64afbd09cd65a300$var$off(document, 'mouseup', this._deselectMultiDrag);
-            $64afbd09cd65a300$var$off(document, 'touchend', this._deselectMultiDrag);
-            $64afbd09cd65a300$var$off(document, 'keydown', this._checkKeyDown);
-            $64afbd09cd65a300$var$off(document, 'keyup', this._checkKeyUp);
+            $64afbd09cd65a300$var$off(document, "pointerup", this._deselectMultiDrag);
+            $64afbd09cd65a300$var$off(document, "mouseup", this._deselectMultiDrag);
+            $64afbd09cd65a300$var$off(document, "touchend", this._deselectMultiDrag);
+            $64afbd09cd65a300$var$off(document, "keydown", this._checkKeyDown);
+            $64afbd09cd65a300$var$off(document, "keyup", this._checkKeyUp);
         },
         _deselectMultiDrag: function _deselectMultiDrag(evt) {
-            if (typeof $64afbd09cd65a300$var$dragStarted !== "undefined" && $64afbd09cd65a300$var$dragStarted) return; // Only deselect if selection is in this sortable
-            if ($64afbd09cd65a300$var$multiDragSortable !== this.sortable) return; // Only deselect if target is not item in this sortable
-            if (evt && $64afbd09cd65a300$var$closest(evt.target, this.options.draggable, this.sortable.el, false)) return; // Only deselect if left click
+            if (typeof $64afbd09cd65a300$var$dragStarted !== "undefined" && $64afbd09cd65a300$var$dragStarted) return;
+            // Only deselect if selection is in this sortable
+            if ($64afbd09cd65a300$var$multiDragSortable !== this.sortable) return;
+            // Only deselect if target is not item in this sortable
+            if (evt && $64afbd09cd65a300$var$closest(evt.target, this.options.draggable, this.sortable.el, false)) return;
+            // Only deselect if left click
             if (evt && evt.button !== 0) return;
             while($64afbd09cd65a300$var$multiDragElements.length){
                 var el = $64afbd09cd65a300$var$multiDragElements[0];
@@ -2395,7 +2493,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                 $64afbd09cd65a300$var$dispatchEvent({
                     sortable: this.sortable,
                     rootEl: this.sortable.el,
-                    name: 'deselect',
+                    name: "deselect",
                     targetEl: el,
                     originalEvent: evt
                 });
@@ -2410,7 +2508,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
     };
     return $64afbd09cd65a300$var$_extends(MultiDrag, {
         // Static methods & properties
-        pluginName: 'multiDrag',
+        pluginName: "multiDrag",
         utils: {
             /**
        * Selects the provided multi-drag item
@@ -2442,10 +2540,11 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
                 oldIndicies.push({
                     multiDragElement: multiDragElement,
                     index: multiDragElement.sortableIndex
-                }); // multiDragElements will already be sorted if folding
+                });
+                // multiDragElements will already be sorted if folding
                 var newIndex;
                 if ($64afbd09cd65a300$var$folding && multiDragElement !== $64afbd09cd65a300$var$dragEl$1) newIndex = -1;
-                else if ($64afbd09cd65a300$var$folding) newIndex = $64afbd09cd65a300$var$index(multiDragElement, ':not(.' + _this3.options.selectedClass + ')');
+                else if ($64afbd09cd65a300$var$folding) newIndex = $64afbd09cd65a300$var$index(multiDragElement, ":not(." + _this3.options.selectedClass + ")");
                 else newIndex = $64afbd09cd65a300$var$index(multiDragElement);
                 newIndicies.push({
                     multiDragElement: multiDragElement,
@@ -2462,7 +2561,7 @@ function $64afbd09cd65a300$export$18e5d2a5d1df842d() {
         optionListeners: {
             multiDragKey: function multiDragKey(key) {
                 key = key.toLowerCase();
-                if (key === 'ctrl') key = 'Control';
+                if (key === "ctrl") key = "Control";
                 else if (key.length > 1) key = key.charAt(0).toUpperCase() + key.substr(1);
                 return key;
             }
@@ -2498,8 +2597,8 @@ $64afbd09cd65a300$export$31b3ca70d8f57423.mount($64afbd09cd65a300$var$Remove, $6
 var $64afbd09cd65a300$export$2e2bcd8739ae039 = $64afbd09cd65a300$export$31b3ca70d8f57423;
 
 
-var $0648b347057451f2$exports = {};
-$0648b347057451f2$exports = ":host {\n  --tabgroup-background: #e7eaed;\n  --tab-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  --tab-font-size: 13px;\n  --tab-background: #e7eaed;\n  --tab-color: #696a6c;\n  --tab-border-color: #dadce0;\n  --tab-transition: background-color 200ms ease-out, color 200ms ease-out;\n  --tab-cursor: pointer;\n  --tab-active-color: currentcolor;\n  --tab-active-background: #fff;\n  --tag-hover-color: currentcolor;\n  --tag-hover-background: #f1f3f4;\n  --button-font-size: 15px;\n  --button-background: none;\n  --button-color: #696a6c;\n  --button-hover-background: #dadce0;\n  --button-hover-color: #383a3e;\n  --button-border-radius: 50%;\n  --button-cursor: pointer;\n  --badge-background: #383a3e;\n  --badge-color: #fff;\n  --close-button-visibility: visible;\n}\n\nwebview {\n  visibility: hidden;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n\nwebview.visible {\n  visibility: visible;\n}\n\n.etabs {\n  font-family: var(--tab-font-family);\n  text-rendering: optimizelegibility;\n  font-feature-settings: \"liga\", \"clig\", \"kern\";\n}\n\n.nav {\n  background: var(--tabgroup-background);\n  box-shadow: inset 0 -1px var(--tab-border-color);\n  border-top: 1px solid var(--tab-border-color);\n  font-size: var(--tab-font-size);\n  width: 100%;\n  height: 32px;\n  cursor: default;\n  -webkit-user-select: none;\n  user-select: none;\n  display: none;\n}\n\n.nav.visible {\n  display: flex;\n}\n\n.tabs {\n  height: 100%;\n}\n\n.tab {\n  background: var(--tab-background);\n  box-shadow: inset 0 -1px var(--tab-border-color);\n  color: var(--tab-color);\n  cursor: var(--tab-cursor);\n  font-size: var(--tab-font-size);\n  transition: var(--tab-transition);\n  box-sizing: border-box;\n  height: 100%;\n  align-items: center;\n  padding: 5px 9px;\n  display: none;\n  position: relative;\n}\n\n.tab:first-child {\n  border-left: none;\n}\n\n.tab.visible {\n  display: inline-flex;\n}\n\n.tab.active {\n  color: var(--tab-active-color);\n  background: var(--tab-active-background);\n  border-left: 1px solid var(--tab-border-color);\n  border-right: 1px solid var(--tab-border-color);\n  box-shadow: none;\n  padding-left: 8px;\n  padding-right: 8px;\n}\n\n.tab.active:last-child {\n  border-right: none;\n}\n\n.tab.visible:not(.active) + .tab.visible:not(.active) {\n  border-left: 1px solid var(--tab-border-color);\n  padding-left: 8px;\n}\n\n.tab:not(.active):hover {\n  background: var(--tab-hover-background);\n  color: var(--tab-hover-color);\n}\n\n.tab-badge {\n  background: var(--badge-background);\n  color: var(--badge-color);\n  text-align: center;\n  border-radius: 5px;\n  margin-left: 5px;\n  padding: 1px 4px;\n  font-size: 8px;\n  font-weight: bold;\n  line-height: 1.2;\n}\n\n.tab-badge.hidden {\n  display: none;\n}\n\n.tab-icon {\n  height: 16px;\n  display: inline-block;\n}\n\n.tab-icon img {\n  max-width: 16px;\n  max-height: 16px;\n}\n\n.tab-title, .tab-close {\n  margin-left: 10px;\n  display: inline-block;\n}\n\n.tab-close button {\n  background: var(--button-background);\n  border-radius: var(--button-border-radius);\n  color: var(--button-color);\n  cursor: var(--button-cursor);\n  font-size: var(--button-font-size);\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  visibility: var(--close-button-visibility);\n  border: none;\n  padding: 1px 0 0;\n  display: inline-block;\n}\n\n.tab.active .tab-close button {\n  visibility: visible;\n}\n\n.tab-close button:hover {\n  color: var(--button-hover-color);\n  background: var(--button-hover-background);\n}\n\n.buttons {\n  border-left: 1px solid var(--tab-border-color);\n  padding: 5px;\n  display: flex;\n}\n\n.buttons button {\n  color: var(--button-color);\n  background: var(--button-background);\n  border-radius: var(--button-border-radius);\n  cursor: var(--button-cursor);\n  font-size: var(--button-font-size);\n  width: 20px;\n  height: 20px;\n  text-align: center;\n  border: none;\n  margin: 0;\n  padding: 1px 0 0;\n  font-family: inherit;\n  line-height: 1;\n  display: block;\n}\n\n.buttons button:hover {\n  color: var(--button-hover-color);\n  background: var(--button-hover-background);\n}\n\n.views {\n  height: calc(100vh - 33px);\n  position: relative;\n}\n\n";
+var $761c8257657e0bda$exports = {};
+$761c8257657e0bda$exports = ":host {\n  --tabgroup-background: #e7eaed;\n  --tab-font-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Oxygen-Sans, Ubuntu, Cantarell, \"Helvetica Neue\", sans-serif, \"Apple Color Emoji\", \"Segoe UI Emoji\", \"Segoe UI Symbol\";\n  --tab-font-size: 13px;\n  --tab-background: #e7eaed;\n  --tab-color: #696a6c;\n  --tab-border-color: #dadce0;\n  --tab-transition: background-color .2s ease-out, color .2s ease-out;\n  --tab-cursor: pointer;\n  --tab-active-color: currentcolor;\n  --tab-active-background: #fff;\n  --tag-hover-color: currentcolor;\n  --tag-hover-background: #f1f3f4;\n  --button-font-size: 15px;\n  --button-background: none;\n  --button-color: #696a6c;\n  --button-hover-background: #dadce0;\n  --button-hover-color: #383a3e;\n  --button-border-radius: 50%;\n  --button-cursor: pointer;\n  --badge-background: #383a3e;\n  --badge-color: #fff;\n  --close-button-visibility: visible;\n}\n\nwebview {\n  visibility: hidden;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n\nwebview.visible {\n  visibility: visible;\n}\n\n.etabs {\n  font-family: var(--tab-font-family);\n  text-rendering: optimizelegibility;\n  font-feature-settings: \"liga\", \"clig\", \"kern\";\n}\n\n.nav {\n  background: var(--tabgroup-background);\n  box-shadow: inset 0 -1px var(--tab-border-color);\n  border-top: 1px solid var(--tab-border-color);\n  font-size: var(--tab-font-size);\n  cursor: default;\n  -webkit-user-select: none;\n  user-select: none;\n  width: 100%;\n  height: 32px;\n  display: none;\n}\n\n.nav.visible {\n  display: flex;\n}\n\n.tabs {\n  height: 100%;\n}\n\n.tab {\n  background: var(--tab-background);\n  box-shadow: inset 0 -1px var(--tab-border-color);\n  color: var(--tab-color);\n  cursor: var(--tab-cursor);\n  font-size: var(--tab-font-size);\n  transition: var(--tab-transition);\n  box-sizing: border-box;\n  align-items: center;\n  height: 100%;\n  padding: 5px 9px;\n  display: none;\n  position: relative;\n}\n\n.tab:first-child {\n  border-left: none;\n}\n\n.tab.visible {\n  display: inline-flex;\n}\n\n.tab.active {\n  color: var(--tab-active-color);\n  background: var(--tab-active-background);\n  border-left: 1px solid var(--tab-border-color);\n  border-right: 1px solid var(--tab-border-color);\n  box-shadow: none;\n  padding-left: 8px;\n  padding-right: 8px;\n}\n\n.tab.active:last-child {\n  border-right: none;\n}\n\n.tab.visible:not(.active) + .tab.visible:not(.active) {\n  border-left: 1px solid var(--tab-border-color);\n  padding-left: 8px;\n}\n\n.tab:not(.active):hover {\n  background: var(--tab-hover-background);\n  color: var(--tab-hover-color);\n}\n\n.tab-badge {\n  background: var(--badge-background);\n  color: var(--badge-color);\n  text-align: center;\n  border-radius: 5px;\n  margin-left: 5px;\n  padding: 1px 4px;\n  font-size: 8px;\n  font-weight: bold;\n  line-height: 1.2;\n}\n\n.tab-badge.hidden {\n  display: none;\n}\n\n.tab-icon {\n  height: 16px;\n  display: inline-block;\n}\n\n.tab-icon img {\n  max-width: 16px;\n  max-height: 16px;\n}\n\n.tab-title, .tab-close {\n  margin-left: 10px;\n  display: inline-block;\n}\n\n.tab-close button {\n  background: var(--button-background);\n  border-radius: var(--button-border-radius);\n  color: var(--button-color);\n  cursor: var(--button-cursor);\n  font-size: var(--button-font-size);\n  text-align: center;\n  visibility: var(--close-button-visibility);\n  border: none;\n  width: 20px;\n  height: 20px;\n  padding: 1px 0 0;\n  display: inline-block;\n}\n\n.tab.active .tab-close button {\n  visibility: visible;\n}\n\n.tab-close button:hover {\n  color: var(--button-hover-color);\n  background: var(--button-hover-background);\n}\n\n.buttons {\n  border-left: 1px solid var(--tab-border-color);\n  padding: 5px;\n  display: flex;\n}\n\n.buttons button {\n  color: var(--button-color);\n  background: var(--button-background);\n  border-radius: var(--button-border-radius);\n  cursor: var(--button-cursor);\n  font-size: var(--button-font-size);\n  text-align: center;\n  border: none;\n  width: 20px;\n  height: 20px;\n  margin: 0;\n  padding: 1px 0 0;\n  font-family: inherit;\n  line-height: 1;\n  display: block;\n}\n\n.buttons button:hover {\n  color: var(--button-hover-color);\n  background: var(--button-hover-background);\n}\n\n.views {\n  height: calc(100vh - 33px);\n  position: relative;\n}\n\n.address-wraper {\n  background-color: #fff;\n  border-bottom: 1px solid #efefef;\n  height: 36px;\n  position: relative;\n}\n\n.address {\n  visibility: hidden;\n  width: 100%;\n  height: 100%;\n  position: absolute;\n}\n\n.address-wraper .visible {\n  visibility: visible;\n}\n\n.address {\n  display: flex;\n}\n\n.address .address-icon {\n  cursor: pointer;\n  justify-content: center;\n  align-items: center;\n  padding: 0 10px;\n  display: flex;\n}\n\n.address img {\n  width: 22px;\n  max-width: 100%;\n  height: 22px;\n  max-height: 100%;\n  display: block;\n}\n\n.address .address-reload img {\n  width: 18px;\n  height: 18px;\n}\n\n.address-bar {\n  flex: 1;\n  padding: 5px;\n}\n\n.address-bar span {\n  color: #000;\n  background-color: #e7eaed;\n  border-radius: 10px;\n  align-items: center;\n  width: 96%;\n  height: 100%;\n  padding-left: 20px;\n  font-size: 14px;\n  display: flex;\n}\n\n";
 
 
 if (!document) throw Error("electron-tabs module must be called in renderer process");
@@ -2510,7 +2609,8 @@ const $eda442ba39f881a8$var$CLASSNAMES = {
     TAB: "tab",
     BUTTONS: "buttons",
     VIEWS: "views",
-    VIEW: "view"
+    VIEW: "view",
+    ADDRESS: "address-wraper"
 };
 function $eda442ba39f881a8$var$emit(emitter, type, args) {
     if (type === "ready") emitter.isReady = true;
@@ -2522,8 +2622,7 @@ function $eda442ba39f881a8$var$on(emitter, type, fn, options) {
     if (type === "ready" && emitter.isReady === true) fn.apply(emitter, [
         emitter
     ]);
-    emitter.addEventListener(type, (e)=>fn.apply(emitter, e.detail)
-    , options);
+    emitter.addEventListener(type, (e)=>fn.apply(emitter, e.detail), options);
 }
 class $eda442ba39f881a8$var$TabGroup extends HTMLElement {
     constructor(){
@@ -2587,12 +2686,16 @@ class $eda442ba39f881a8$var$TabGroup extends HTMLElement {
             button.innerHTML = this.options.newTabButtonText;
             button.addEventListener("click", this.addTab.bind(this, undefined), false);
         }
+        const addressBarContainer = document.createElement("div");
+        addressBarContainer.setAttribute("class", $eda442ba39f881a8$var$CLASSNAMES.ADDRESS);
+        wrapper.appendChild(addressBarContainer);
+        this.addressBarContainer = addressBarContainer;
         const viewContainer = document.createElement("div");
         viewContainer.setAttribute("class", $eda442ba39f881a8$var$CLASSNAMES.VIEWS);
         wrapper.appendChild(viewContainer);
         this.viewContainer = viewContainer;
         const style = document.createElement("style");
-        style.textContent = (/*@__PURE__*/$parcel$interopDefault($0648b347057451f2$exports));
+        style.textContent = (0, (/*@__PURE__*/$parcel$interopDefault($761c8257657e0bda$exports)));
         shadow.appendChild(style);
         shadow.appendChild(wrapper);
     }
@@ -2614,9 +2717,9 @@ class $eda442ba39f881a8$var$TabGroup extends HTMLElement {
                 animation: 150,
                 swapThreshold: 0.20
             }, this.options.sortableOptions);
-            new $64afbd09cd65a300$export$2e2bcd8739ae039(this.tabContainer, options);
+            new (0, $64afbd09cd65a300$export$2e2bcd8739ae039)(this.tabContainer, options);
         };
-        if ($64afbd09cd65a300$export$2e2bcd8739ae039) createNewSortable();
+        if (0, $64afbd09cd65a300$export$2e2bcd8739ae039) createNewSortable();
         else document.addEventListener("DOMContentLoaded", createNewSortable);
     }
     setDefaultTab(tab) {
@@ -2648,7 +2751,7 @@ class $eda442ba39f881a8$var$TabGroup extends HTMLElement {
     }
     getTabByRelPosition(position) {
         position = this.getActiveTab().getPosition() + position;
-        if (position <= 0) return null;
+        if (position < 0) return null;
         return this.getTabByPosition(position);
     }
     getNextTab() {
@@ -2674,8 +2777,7 @@ class $eda442ba39f881a8$var$TabGroup extends HTMLElement {
     }
     removeTab(tab, triggerEvent = false) {
         const id = tab.id;
-        const index = this.tabs.findIndex((t)=>t.id === id
-        );
+        const index = this.tabs.findIndex((t)=>t.id === id);
         this.tabs.splice(index, 1);
         if (triggerEvent) this.emit("tab-removed", tab, this);
     }
@@ -2699,6 +2801,7 @@ class $eda442ba39f881a8$var$Tab extends EventTarget {
         this.webviewAttributes = args.webviewAttributes || {};
         this.webviewAttributes.src = args.src;
         this.initTab();
+        this.initAddress();
         this.initWebview();
         if (args.visible !== false) this.show();
         if (typeof args.ready === "function") args.ready(this);
@@ -2760,6 +2863,38 @@ class $eda442ba39f881a8$var$Tab extends EventTarget {
         };
         this.element.addEventListener("mousedown", tabMouseDownHandler.bind(this), false);
     }
+    initAddress() {
+        const addressBar = this.addressBar = document.createElement("div");
+        addressBar.classList.add("address");
+        //后退
+        const backBtn = addressBar.appendChild(document.createElement("div"));
+        backBtn.classList.add("address-icon", "address-back");
+        let backBtnUrl = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE0NTYyMjczIiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI3MDAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTI4My4zOTIgNDY5LjMzMzMzM2wyMjkuNTA0LTIyOS40ODI2NjYtNjAuMzUyLTYwLjM1MkwxMjAuNjgyNjY3IDUxMS4zODEzMzNsMzMxLjg2MTMzMyAzMzEuODYxMzM0IDYwLjM1Mi02MC4zNTJMMjg0LjY1MDY2NyA1NTQuNjY2NjY3SDg5NnYtODUuMzMzMzM0eiIgZmlsbD0iIzAwMDAwMCIgcC1pZD0iMjcwMSI+PC9wYXRoPjwvc3ZnPg==";
+        backBtn.innerHTML = `<img src="${backBtnUrl}"/>`;
+        backBtn.addEventListener("click", ()=>{
+            this.webview.goBack();
+        });
+        // 前进
+        const preBtn = addressBar.appendChild(document.createElement("div"));
+        preBtn.classList.add("address-icon", "address-prev");
+        let preBtnUrl = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE0NTk5Mjc5IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI4NTQiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTc4My4yNzQ2NjcgNDY5LjMzMzMzM0w1NTMuNzcwNjY3IDIzOS44NTA2NjdsNjAuMzUyLTYwLjM1MiAzMzEuODYxMzMzIDMzMS44ODI2NjYtMzMxLjg2MTMzMyAzMzEuODYxMzM0LTYwLjM1Mi02MC4zNTJMNzgyLjAxNiA1NTQuNjY2NjY3SDE3MC42NjY2Njd2LTg1LjMzMzMzNHoiIGZpbGw9IiMwMDAwMDAiIHAtaWQ9IjI4NTUiPjwvcGF0aD48L3N2Zz4=";
+        preBtn.innerHTML = `<img src="${preBtnUrl}"/>`;
+        preBtn.addEventListener("click", ()=>{
+            this.webview.goForward();
+        });
+        const reloadBtn = addressBar.appendChild(document.createElement("div"));
+        reloadBtn.classList.add("address-icon", "address-reload");
+        let reloadBtnUrl = "data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNzA1NzE1MjE3OTE0IiBjbGFzcz0iaWNvbiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjMwMDgiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCI+PHBhdGggZD0iTTc2OC45Mzg2NjcgMjU2QTM2MS44OTg2NjcgMzYxLjg5ODY2NyAwIDAgMCA1MTIgMTQ5LjMzMzMzM0MzMTEuNzAxMzMzIDE0OS4zMzMzMzMgMTQ5LjMzMzMzMyAzMTEuNzAxMzMzIDE0OS4zMzMzMzMgNTEyczE2Mi4zNjggMzYyLjY2NjY2NyAzNjIuNjY2NjY3IDM2Mi42NjY2NjcgMzYyLjY2NjY2Ny0xNjIuMzY4IDM2Mi42NjY2NjctMzYyLjY2NjY2N2g4NS4zMzMzMzNjMCAyNDcuNDI0LTIwMC41NzYgNDQ4LTQ0OCA0NDhTNjQgNzU5LjQyNCA2NCA1MTIgMjY0LjU3NiA2NCA1MTIgNjRjMTIyLjg4IDAgMjM3LjIyNjY2NyA0OS44OTg2NjcgMzIwIDEzNC40VjY0aDg1LjMzMzMzM3YyNzcuMzMzMzMzSDY0MHYtODUuMzMzMzMzaDEyOC45Mzg2Njd6IiBmaWxsPSIjMDAwMDAwIiBwLWlkPSIzMDA5Ij48L3BhdGg+PC9zdmc+";
+        reloadBtn.innerHTML = `<img src="${reloadBtnUrl}"/>`;
+        reloadBtn.addEventListener("click", ()=>{
+            this.webview.reload();
+        });
+        //地址栏
+        const addressWaper = addressBar.appendChild(document.createElement("div"));
+        addressWaper.classList.add("address-bar");
+        this.addressText = addressWaper.appendChild(document.createElement("span"));
+        this.tabGroup.addressBarContainer.appendChild(this.addressBar);
+    }
     initWebview() {
         const webview = this.webview = document.createElement("webview");
         const tabWebviewDidFinishLoadHandler = function(e) {
@@ -2773,6 +2908,11 @@ class $eda442ba39f881a8$var$Tab extends EventTarget {
             this.emit("webview-dom-ready", this);
         };
         this.webview.addEventListener("dom-ready", tabWebviewDomReadyHandler.bind(this), false);
+        this.webview.addEventListener("load-commit", (e)=>{
+            if (!e.isMainFrame) return false;
+            let url = e?.url;
+            this.addressText.innerText = url;
+        }, false);
         this.webview.classList.add($eda442ba39f881a8$var$CLASSNAMES.VIEW);
         if (this.webviewAttributes) {
             const attrs = this.webviewAttributes;
@@ -2886,8 +3026,7 @@ class $eda442ba39f881a8$var$Tab extends EventTarget {
     }
     close(force) {
         const abortController = new AbortController();
-        const abort = ()=>abortController.abort()
-        ;
+        const abort = ()=>abortController.abort();
         this.emit("closing", this, abort);
         const abortSignal = abortController.signal;
         if (this.isClosed || !this.closable && !force || abortSignal.aborted) return;

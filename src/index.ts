@@ -566,11 +566,13 @@ class Tab extends EventTarget {
     if (activeTab) {
       activeTab.element.classList.remove("active");
       activeTab.webview.classList.remove("visible");
+      activeTab.addressBar.classList.remove("visible");
       activeTab.emit("inactive", activeTab);
     }
     this.tabGroup.setActiveTab(this);
     this.element.classList.add("active");
     this.webview.classList.add("visible");
+    this.addressBar.classList.add("visible");
     this.webview.focus();
     this.emit("active", this);
     return this;

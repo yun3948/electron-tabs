@@ -1,6 +1,6 @@
 {
   "name": "electron-tabs-simple-browser",
-  "version": "1.0.4",
+  "version": "1.0.0",
   "description": "Simple tabs browser for Electron applications",
   "main": "dist/electron-tabs.js",
   "types": "dist/electron-tabs.d.ts",
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/brrd/electron-tabs"
+    "url": "https://github.com/yun3948/electron-tabs.git"
   },
   "scripts": {
     "demo": "electron ./demo",

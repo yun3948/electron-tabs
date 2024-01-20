@@ -1,4 +1,16 @@
-# 基于 electron-tabs 主要增加了 前进后退按钮，用作简易浏览器展示
+# 基于 electron-tabs ，主要增加了 前进后退按钮，用作简易浏览器展示,vue 简单示例
+
+```
+      <tab-group ref="tabgroup" new-tab-button="true" sortable="true">
+              <component is="style">
+                .nav{ height:40px; } .nav .tabs { height:40px; } .nav .tabs .tab{ font-size:12px; border-top:none;
+                height:40px; min-width:100px; max-width:200px; white-space:nowrap; overflow:hidden; padding:0px 10px;
+                border-top-left-radius: 12px 12px; border-top-right-radius: 12px 12px; border-bottom-left-radius:;
+                border-bottom-right-radius:; margin-left:3px; margin-right:3px; border:1px solid #c6c6c6;
+                justify-content: space-between; } .buttons{ border-left:none; }
+              </component>
+            </tab-group>
+```
 
 # electron-tabs
 

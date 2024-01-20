@@ -17,7 +17,8 @@
   "scripts": {
     "demo": "electron ./demo",
     "watch": "parcel watch",
-    "build": "parcel build"
+    "build": "parcel build",
+    "release": "np --no-yarn --no-2fa"
   },
   "keywords": [
     "electron",
